@@ -23,15 +23,15 @@ public class IKComponent : MonoBehaviour
         RaycastHit hit;
         if (Physics.SphereCast(transform.position, 2f, Vector3.down, out hit)) {
             TargetPos = hit.point;
-            if (Vector3.Distance(transform.position, RealPos) > SegmentCount*SegmentLength-0.05f) {
+            if (Vector3.Distance(transform.position, RealPos) > SegmentCount*SegmentLength) {
                 LerpPos = TargetPos;
                 LastStepDist = Vector3.Distance(RealPos, LerpPos);
             }
         }
         float StepDist = Vector3.Distance(RealPos,LerpPos);
-        RealPos = Vector3.Lerp(RealPos, LerpPos, 0.05f);
+        RealPos = Vector3.Lerp(RealPos, LerpPos, 0.035f);
         StepDist = Vector3.Distance(RealPos,LerpPos);
-        float StepHeight = Mathf.Clamp(-1f*((StepDist-(LastStepDist))*StepDist), 0, float.PositiveInfinity);
+        float StepHeight = Mathf.Clamp(-0.1f*((StepDist-(LastStepDist))*StepDist), 0, float.PositiveInfinity);
         VisualPos = RealPos + new Vector3(0, StepHeight, 0);
         limb.FABRIK(Iterations, gameObject.transform.position, VisualPos);
     }
