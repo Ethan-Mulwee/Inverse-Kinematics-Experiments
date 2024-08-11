@@ -1,0 +1,46 @@
+
+using UnityEngine;
+using IK;
+
+namespace IK {
+    public class Limb
+    {
+        public Segment[] Segments;
+
+        public Limb(uint segCount, float segLength) {
+            Segments = new Segment[segCount];
+            for (int i = 0; i < Segments.Length; i++) {
+                Segments[i] = new Segment(segLength);
+            }
+        }
+
+        void Backwards(Vector3 Target) {
+            Segment Last = Segments[Segments.Length-1];
+            Last.b = Target;
+            Last.calculateA(Target);
+            for (int i = Segments.Length-2; i > -1; i--) {
+                Segment segment = Segments[i];
+                segment.b = Segments[i+1].a;
+                segment.calculateA(segment.b);
+            }
+        }
+
+        void Fowards(Vector3 Target) {
+            Segment First = Segments[0];
+            First.a = Target;
+            First.calculateB(Target);
+            for (int i = 1; i < Segments.Length; i++) {
+                Segment segment = Segments[i];
+                segment.a = Segments[i-1].b;
+                segment.calculateB(segment.a);
+            }
+        }
+        
+        public void FABRIK(uint Iterations, Vector3 Start, Vector3 Target) {
+            for (int i = 0; i < Iterations; i++) {
+                Backwards(Target);
+                Fowards(Start);
+            }
+        }
+    }
+}
