@@ -19,9 +19,11 @@ public class IKComponent : MonoBehaviour
     Vector3 VisualPos = Vector3.zero;
     Limb limb;
     float LastStepDist;
-    void Update() {
+    void Update()
+    {
         RaycastHit hit;
-        if (Physics.SphereCast(transform.position, 2f, Vector3.down, out hit)) {
+        if (Physics.SphereCast(transform.position, 2f, Vector3.down, out hit))
+        {
             TargetPos = hit.point;
             // if (Vector3.Distance(transform.position, RealPos) > SegmentCount*SegmentLength) {
             //     LerpPos = TargetPos;
@@ -33,15 +35,29 @@ public class IKComponent : MonoBehaviour
         // StepDist = Vector3.Distance(RealPos,LerpPos);
         // float StepHeight = Mathf.Clamp(-0.1f*((StepDist-(LastStepDist))*StepDist), 0, float.PositiveInfinity);
         // VisualPos = RealPos + new Vector3(0, StepHeight, 0);
+        Pole();
         limb.FABRIK(Iterations, gameObject.transform.position, TargetPos);
+    }
+
+    private void Pole()
+    {
+
         Vector3 rotatePos = Vector3.Lerp(transform.position, TargetPos, 0.5f);
-        Vector3 poleVector = poleTarget.transform.position-rotatePos;
-        Vector3 rotateUpDir = transform.position-rotatePos;
+        Vector3 poleVector = poleTarget.transform.position - rotatePos;
+        Vector3 rotateUpDir = transform.position - rotatePos;
         Debug.DrawRay(rotatePos, poleVector);
         Debug.DrawRay(rotatePos, rotateUpDir);
         Vector3 projectedVector = Vector3.ProjectOnPlane(poleVector, rotateUpDir);
+        //Debug.DrawRay(rotatePos, projectedVector);
+        Vector3 differenceVector = limb.Segments[1].a - rotatePos;
+        Debug.DrawRay(rotatePos, differenceVector);
+        projectedVector.Normalize();
+        projectedVector = projectedVector * differenceVector.magnitude;
         Debug.DrawRay(rotatePos, projectedVector);
+        limb.Segments[1].a = projectedVector+rotatePos;
+        limb.Segments[0].b = projectedVector+rotatePos;
     }
+
     void OnValidate()
     {
         limb = new Limb(SegmentCount, SegmentLength);
