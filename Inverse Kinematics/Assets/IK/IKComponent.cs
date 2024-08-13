@@ -25,24 +25,24 @@ public class IKComponent : MonoBehaviour
         if (Physics.SphereCast(transform.position, 2f, Vector3.down, out hit))
         {
             TargetPos = hit.point;
-            // if (Vector3.Distance(transform.position, RealPos) > SegmentCount*SegmentLength) {
-            //     LerpPos = TargetPos;
-            //     LastStepDist = Vector3.Distance(RealPos, LerpPos);
-            // }
+            if (Vector3.Distance(transform.position, RealPos) > SegmentCount*SegmentLength) {
+                LerpPos = TargetPos;
+                LastStepDist = Vector3.Distance(RealPos, LerpPos);
+            }
         }
-        // float StepDist = Vector3.Distance(RealPos,LerpPos);
-        // RealPos = Vector3.Lerp(RealPos, LerpPos, 0.035f);
-        // StepDist = Vector3.Distance(RealPos,LerpPos);
-        // float StepHeight = Mathf.Clamp(-0.1f*((StepDist-(LastStepDist))*StepDist), 0, float.PositiveInfinity);
-        // VisualPos = RealPos + new Vector3(0, StepHeight, 0);
+        float StepDist = Vector3.Distance(RealPos,LerpPos);
+        RealPos = Vector3.Lerp(RealPos, LerpPos, 0.035f);
+        StepDist = Vector3.Distance(RealPos,LerpPos);
+        float StepHeight = Mathf.Clamp(-0.1f*((StepDist-(LastStepDist))*StepDist), 0, float.PositiveInfinity);
+        VisualPos = RealPos + new Vector3(0, StepHeight, 0);
         Pole();
-        limb.FABRIK(Iterations, gameObject.transform.position, TargetPos);
+        limb.FABRIK(Iterations, gameObject.transform.position, VisualPos);
     }
 
     private void Pole()
     {
 
-        Vector3 rotatePos = Vector3.Lerp(transform.position, TargetPos, 0.5f);
+        Vector3 rotatePos = Vector3.Lerp(transform.position, VisualPos, 0.5f);
         Vector3 poleVector = poleTarget.transform.position - rotatePos;
         Vector3 rotateUpDir = transform.position - rotatePos;
         Debug.DrawRay(rotatePos, poleVector);
@@ -69,9 +69,9 @@ public class IKComponent : MonoBehaviour
             Handles.DrawLine(segment.a, segment.b, 6f);
         }
         Gizmos.DrawSphere(TargetPos,0.3f);
-        Handles.DrawLine(transform.position, TargetPos, 10f);
-        Gizmos.DrawSphere(Vector3.Lerp(transform.position, TargetPos, 0.5f), 0.5f);
+        //Handles.DrawLine(transform.position, TargetPos, 10f);
+        //Gizmos.DrawSphere(Vector3.Lerp(transform.position, TargetPos, 0.5f), 0.5f);
         // Gizmos.DrawSphere(LerpPos, 0.2f);
-        // Gizmos.DrawSphere(VisualPos, 0.1f);
+        Gizmos.DrawSphere(VisualPos, 0.1f);
     }
 }
