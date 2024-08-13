@@ -18,6 +18,7 @@ public class IKComponent : MonoBehaviour
     Vector3 RealPos = Vector3.zero;
     Vector3 VisualPos = Vector3.zero;
     Limb limb;
+    Vector3 Velocity = Vector3.zero;
     float LastStepDist;
     void Update()
     {
@@ -28,10 +29,12 @@ public class IKComponent : MonoBehaviour
             if (Vector3.Distance(transform.position, RealPos) > SegmentCount*SegmentLength) {
                 LerpPos = TargetPos;
                 LastStepDist = Vector3.Distance(RealPos, LerpPos);
+                Velocity = Vector3.zero;
             }
         }
         float StepDist = Vector3.Distance(RealPos,LerpPos);
-        RealPos = Vector3.Lerp(RealPos, LerpPos, 0.035f);
+        //RealPos = Vector3.Lerp(RealPos, LerpPos, 0.035f);
+        RealPos = Vector3.SmoothDamp(RealPos, LerpPos, ref Velocity, 0.04f);
         StepDist = Vector3.Distance(RealPos,LerpPos);
         float StepHeight = Mathf.Clamp(-0.1f*((StepDist-(LastStepDist))*StepDist), 0, float.PositiveInfinity);
         VisualPos = RealPos + new Vector3(0, StepHeight, 0);
