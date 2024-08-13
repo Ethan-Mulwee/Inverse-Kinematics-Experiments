@@ -18,15 +18,18 @@ public class IKComponent : MonoBehaviour
     Vector3 RealPos = Vector3.zero;
     Vector3 VisualPos = Vector3.zero;
     Limb limb;
+    Limb limb2;
     Vector3 Velocity = Vector3.zero;
     float LastStepDist;
+    public bool Selected = false;
     void Update()
     {
         RaycastHit hit;
         if (Physics.SphereCast(transform.position, 2f, Vector3.down, out hit))
         {
             TargetPos = hit.point;
-            if (Vector3.Distance(transform.position, RealPos) > SegmentCount*SegmentLength) {
+            if (Selected || (Vector3.Distance(transform.position, RealPos) > SegmentCount*SegmentLength)) {
+                Selected = false;
                 LerpPos = TargetPos;
                 LastStepDist = Vector3.Distance(RealPos, LerpPos);
                 Velocity = Vector3.zero;
@@ -38,11 +41,12 @@ public class IKComponent : MonoBehaviour
         StepDist = Vector3.Distance(RealPos,LerpPos);
         float StepHeight = Mathf.Clamp(-0.1f*((StepDist-(LastStepDist))*StepDist), 0, float.PositiveInfinity);
         VisualPos = RealPos + new Vector3(0, StepHeight, 0);
-        Pole();
+        Pole(limb);
         limb.FABRIK(Iterations, gameObject.transform.position, VisualPos);
+        //Pole(limb2);
     }
 
-    private void Pole()
+    private void Pole(Limb limb)
     {
 
         Vector3 rotatePos = Vector3.Lerp(transform.position, VisualPos, 0.5f);
