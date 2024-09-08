@@ -1,8 +1,10 @@
 
 using UnityEngine;
 using IK;
+using System;
 
 namespace IK {
+    [Serializable]
     public class Limb
     {
         public Segment[] Segments;
@@ -41,6 +43,21 @@ namespace IK {
                 Backwards(Target);
                 Fowards(Start);
             }
+        }
+
+        public void PoleTarget(Vector3 poleTarget)
+        {
+            Vector3 Start = Segments[0].a;
+            Vector3 End = Segments[Segments.Length-1].b;
+            Vector3 rotatePos = Vector3.Lerp(Start, End, 0.5f);
+            Vector3 poleVector = poleTarget - rotatePos;
+            Vector3 rotateUpDir = Start - rotatePos;
+            Vector3 projectedVector = Vector3.ProjectOnPlane(poleVector, rotateUpDir);
+            Vector3 differenceVector = Segments[1].a - rotatePos;
+            projectedVector.Normalize();
+            projectedVector = projectedVector * differenceVector.magnitude;
+            Segments[1].a = projectedVector+rotatePos;
+            Segments[0].b = projectedVector+rotatePos;
         }
     }
 }

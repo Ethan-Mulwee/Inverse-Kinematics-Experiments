@@ -1,11 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 using IK;
 using UnityEditor;
-using System;
-using System.Threading;
-
 [ExecuteAlways]
 public class IKComponent : MonoBehaviour
 {
@@ -18,32 +14,26 @@ public class IKComponent : MonoBehaviour
     Vector3 RealPos = Vector3.zero;
     Vector3 VisualPos = Vector3.zero;
     Limb limb;
-    Limb limb2;
     Vector3 Velocity = Vector3.zero;
     float LastStepDist;
-    public bool Selected = false;
     void Update()
     {
         RaycastHit hit;
         if (Physics.SphereCast(transform.position, 2f, Vector3.down, out hit))
         {
             TargetPos = hit.point;
-            if (Selected || (Vector3.Distance(transform.position, RealPos) > SegmentCount*SegmentLength)) {
-                Selected = false;
+            if (Vector3.Distance(transform.position, RealPos) > SegmentCount*SegmentLength) {
                 LerpPos = TargetPos;
                 LastStepDist = Vector3.Distance(RealPos, LerpPos);
-                Velocity = Vector3.zero;
             }
         }
         float StepDist = Vector3.Distance(RealPos,LerpPos);
-        //RealPos = Vector3.Lerp(RealPos, LerpPos, 0.035f);
-        RealPos = Vector3.SmoothDamp(RealPos, LerpPos, ref Velocity, 0.04f);
+        RealPos = Vector3.SmoothDamp(RealPos, LerpPos, ref Velocity, 0.1f);
         StepDist = Vector3.Distance(RealPos,LerpPos);
-        float StepHeight = Mathf.Clamp(-0.1f*((StepDist-(LastStepDist))*StepDist), 0, float.PositiveInfinity);
+        float StepHeight = Mathf.Clamp(-0.9f*((StepDist-(LastStepDist))*StepDist), 0, float.PositiveInfinity);
         VisualPos = RealPos + new Vector3(0, StepHeight, 0);
         Pole(limb);
         limb.FABRIK(Iterations, gameObject.transform.position, VisualPos);
-        //Pole(limb2);
     }
 
     private void Pole(Limb limb)
@@ -67,10 +57,9 @@ public class IKComponent : MonoBehaviour
 
     void OnValidate()
     {
-        limb = new Limb(SegmentCount, SegmentLength);
+        //limb = new Limb(SegmentCount, SegmentLength);
     }
-    void OnDrawGizmos() {
-
+    void DrawGizmo() {
         foreach(Segment segment in limb.Segments) {
             Handles.color = Color.black;
             Handles.DrawLine(segment.a, segment.b, 6f);
@@ -80,5 +69,8 @@ public class IKComponent : MonoBehaviour
         //Gizmos.DrawSphere(Vector3.Lerp(transform.position, TargetPos, 0.5f), 0.5f);
         // Gizmos.DrawSphere(LerpPos, 0.2f);
         Gizmos.DrawSphere(VisualPos, 0.1f);
+    }
+    void OnDrawGizmos() {
+        DrawGizmo();
     }
 }
