@@ -28,7 +28,11 @@ public class IKBodyController : MonoBehaviour
         GetInput();
         GetTarget();
         rb.AddForce(input*8*Time.deltaTime, ForceMode.Impulse);
-        Debug.DrawRay(transform.position, target-transform.position);
+        Vector3 targetVector = target-transform.position;
+        targetVector = new Vector3(targetVector.x, Mathf.Clamp(targetVector.y, -1f, float.PositiveInfinity), targetVector.z);
+        Debug.DrawRay(transform.position, targetVector);
+        rb.AddForce(Physics.gravity*-1*Time.deltaTime, ForceMode.Impulse);
+        rb.AddForce(targetVector*Time.deltaTime*10, ForceMode.Impulse);
     }
 
     void GetInput() {
