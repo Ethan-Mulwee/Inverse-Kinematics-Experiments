@@ -33,6 +33,7 @@ public class IKLimb : MonoBehaviour
         GetTarget();
         CheckOverextension();
         animTarget2 = Vector3.SmoothDamp(animTarget2, animTarget1, ref stepVelocity, animTime);
+        var stepDistance = Vector3.Distance(animTarget2, animTarget1);
         End = animTarget2;
         limb.PoleTarget(poleTarget.transform.position);
         limb.FABRIK(Iterations, gameObject.transform.position, End);
@@ -67,7 +68,9 @@ public class IKLimb : MonoBehaviour
         smoothVelocity = Vector3.SmoothDamp(smoothVelocity, bodyVelocity, ref smoothDampVelocity, 0.1f);
     }
 
+    Vector3 lastTarget;
     public void Step() {
+        lastTarget = animTarget1;
         animTarget1 = Target;
     }
 
@@ -77,7 +80,7 @@ public class IKLimb : MonoBehaviour
             Handles.color = Color.black;
             Handles.DrawLine(segment.a, segment.b, 6f);
         }
-        //Gizmos.DrawSphere(Target,0.3f);
+        //Gizmos.DrawSphere(lastTarget,0.3f);
         Gizmos.DrawSphere(End, 0.1f);
         //Gizmos.DrawSphere(animTarget, 0.5f);
     }
