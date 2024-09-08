@@ -33,16 +33,18 @@ public class IKLimb : MonoBehaviour
         GetTarget();
         CheckOverextension();
         animTarget2 = Vector3.SmoothDamp(animTarget2, animTarget1, ref stepVelocity, animTime);
-        var stepDistance = Vector3.Distance(animTarget2, animTarget1);
-        End = animTarget2;
+        float stepDistance = Vector3.Distance(animTarget2, animTarget1);
+        float lastDistance = Vector3.Distance(lastTarget, animTarget1);
+        float stepHeight = Mathf.Clamp(-0.5f*((stepDistance-(lastDistance))*stepDistance), 0, 1);
+        End = animTarget2 + stepHeight*transform.up;
         limb.PoleTarget(poleTarget.transform.position);
         limb.FABRIK(Iterations, gameObject.transform.position, End);
     }
 
     private void CheckOverextension()
     {
-        if (Vector3.Distance(transform.position, End) > 2 * SegmentLength)
-        {
+        if (Vector3.Distance(transform.position, End) > 2 * SegmentLength) {
+            lastTarget = animTarget1;
             animTarget1 = Target;
         }
     }
@@ -82,7 +84,7 @@ public class IKLimb : MonoBehaviour
         }
         //Gizmos.DrawSphere(lastTarget,0.3f);
         Gizmos.DrawSphere(End, 0.1f);
-        //Gizmos.DrawSphere(animTarget, 0.5f);
+        //Gizmos.DrawSphere(animTarget2, 0.3f);
     }
 
 }
