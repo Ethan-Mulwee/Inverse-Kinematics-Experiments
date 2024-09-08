@@ -7,12 +7,34 @@ using System;
 [ExecuteAlways]
 public class IKManager : MonoBehaviour
 {
-    float Timer = 0;
+    [Range(0f,1f)]
+    [SerializeField] float stepTime = 0.4f;
+    [Range(0f, 1f)]
+    [SerializeField] float animTime = 0.1f;
+    [Range(0f, 60f)]
+    [SerializeField] float leanMultipler = 35f;
     [SerializeField] List<LimbPairing> limbs = new List<LimbPairing>();
+    float Timer = 0;
+
+    void updateProperties() {
+        foreach (LimbPairing limbPair in limbs) {
+            limbPair.leadingLimb.animTime = animTime;
+            limbPair.trailingLimb.animTime = animTime;
+            limbPair.leadingLimb.leanMultipler = leanMultipler;
+            limbPair.trailingLimb.leanMultipler = leanMultipler;
+        }
+    }
+
+    void OnEnable() {
+        updateProperties();
+    }
+    void OnValidate() {
+        updateProperties();
+    }
 
     void Update() {
         Timer += Time.deltaTime;
-        if (Timer > 0.4f) {
+        if (Timer > stepTime) {
             Timer = 0;
             foreach(LimbPairing limbPair in limbs) {
                 limbPair.Step();
