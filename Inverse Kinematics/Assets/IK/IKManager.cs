@@ -57,4 +57,14 @@ public class IKManager : MonoBehaviour
             LimbSelector = !LimbSelector;
         }
     }
+    public Vector3 AveragePosition() {
+        Vector3 total = Vector3.zero;
+        int count = 0;
+        foreach (LimbPairing limbPair in limbs) {
+            total += limbPair.leadingLimb.animTarget2;
+            total += limbPair.trailingLimb.animTarget2;
+            count += 2;
+        }
+        return total/count;
+    }
 }
