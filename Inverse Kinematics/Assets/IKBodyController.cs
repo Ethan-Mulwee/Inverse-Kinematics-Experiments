@@ -27,12 +27,19 @@ public class IKBodyController : MonoBehaviour
     void Update() {
         GetInput();
         GetTarget();
-        rb.AddForce(input*8*Time.deltaTime, ForceMode.Impulse);
+        
+        rb.AddForce(input*20*Time.deltaTime, ForceMode.Impulse);
         Vector3 targetVector = target-transform.position;
-        targetVector = new Vector3(targetVector.x, Mathf.Clamp(targetVector.y, -1f, float.PositiveInfinity), targetVector.z);
+        targetVector = new Vector3(targetVector.x, Mathf.Clamp(targetVector.y, float.NegativeInfinity, float.PositiveInfinity), targetVector.z);
         Debug.DrawRay(transform.position, targetVector);
         rb.AddForce(Physics.gravity*-1*Time.deltaTime, ForceMode.Impulse);
-        rb.AddForce(targetVector*Time.deltaTime*10, ForceMode.Impulse);
+        rb.AddForce(targetVector*Time.deltaTime*200f, ForceMode.Force);
+        if (Input.GetKey(KeyCode.E)) {
+            transform.Rotate(new Vector3(0,1,0));
+        }
+        if (Input.GetKey(KeyCode.Q)) {
+            transform.Rotate(new Vector3(0,-1,0));
+        }
     }
 
     void GetInput() {

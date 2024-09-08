@@ -154,7 +154,7 @@ MonoBehaviour:
   segmentLength: 2
   poleTarget: {fileID: 1369114851}
   rayTarget: {fileID: 1456304578}
-  animTarget2: {x: -0.18764196, y: -0.12603721, z: -0.2740964}
+  animTarget2: {x: -0.14228827, y: -0.13645908, z: -0.2483791}
   Grounded: 0
 --- !u!4 &499787878
 Transform:
@@ -198,7 +198,7 @@ Transform:
   m_GameObject: {fileID: 515256561}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.847, z: -1.273}
+  m_LocalPosition: {x: 0, y: -1.589, z: -1.273}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -229,7 +229,7 @@ Transform:
   m_GameObject: {fileID: 521714326}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.847, z: -1.273}
+  m_LocalPosition: {x: 0, y: -1.589, z: -1.273}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -301,7 +301,7 @@ MonoBehaviour:
   segmentLength: 2
   poleTarget: {fileID: 585295986}
   rayTarget: {fileID: 2029265392}
-  animTarget2: {x: -0.00025534286, y: -0.00013858845, z: -0.0001552302}
+  animTarget2: {x: -0.17052792, y: -0.13358648, z: -0.15749666}
   Grounded: 0
 --- !u!4 &593800132
 Transform:
@@ -452,7 +452,7 @@ Transform:
   m_GameObject: {fileID: 653712209}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.847, z: -1.273}
+  m_LocalPosition: {x: 0, y: -1.589, z: -1.273}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -724,7 +724,7 @@ MonoBehaviour:
   segmentLength: 2
   poleTarget: {fileID: 851741344}
   rayTarget: {fileID: 653712209}
-  animTarget2: {x: 0.13292442, y: -0.13644725, z: -0.1528319}
+  animTarget2: {x: 0.0557112, y: -0.13645908, z: -0.14480679}
   Grounded: 0
 --- !u!4 &846724168
 Transform:
@@ -891,7 +891,7 @@ Transform:
   m_GameObject: {fileID: 1011311306}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.847, z: -1.273}
+  m_LocalPosition: {x: 0, y: -1.589, z: -1.273}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -932,7 +932,7 @@ MonoBehaviour:
   segmentLength: 2
   poleTarget: {fileID: 805711932}
   rayTarget: {fileID: 521714326}
-  animTarget2: {x: -0.14788309, y: -0.09155309, z: -0.04465887}
+  animTarget2: {x: -0.12596911, y: -0.094567925, z: -0.09168976}
   Grounded: 0
 --- !u!4 &1039419655
 Transform:
@@ -1201,7 +1201,7 @@ MonoBehaviour:
   segmentLength: 2
   poleTarget: {fileID: 1701134099}
   rayTarget: {fileID: 1011311306}
-  animTarget2: {x: 0.00008599534, y: -0.00013858845, z: -0.00030139185}
+  animTarget2: {x: 0.035528157, y: -0.13358648, z: -0.23092578}
   Grounded: 0
 --- !u!4 &1349647031
 Transform:
@@ -1276,7 +1276,7 @@ Transform:
   m_GameObject: {fileID: 1456304578}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.847, z: -1.273}
+  m_LocalPosition: {x: 0, y: -1.589, z: -1.273}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1431,7 +1431,7 @@ Rigidbody:
   m_GameObject: {fileID: 1593624291}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0.24
+  m_Drag: 2
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -1559,7 +1559,7 @@ MonoBehaviour:
   segmentLength: 2
   poleTarget: {fileID: 1606043833}
   rayTarget: {fileID: 515256561}
-  animTarget2: {x: 0.000023279104, y: -0.00007586735, z: -0.00007546537}
+  animTarget2: {x: -0.0030804647, y: -0.07817106, z: -0.09240776}
   Grounded: 0
 --- !u!4 &1951801955
 Transform:
@@ -1603,7 +1603,7 @@ Transform:
   m_GameObject: {fileID: 2029265392}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.847, z: -1.273}
+  m_LocalPosition: {x: 0, y: -1.589, z: -1.273}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
