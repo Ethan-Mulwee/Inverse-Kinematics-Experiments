@@ -13,6 +13,7 @@ public class IKManager : MonoBehaviour
     [SerializeField] float animTime = 0.1f;
     [Range(0f, 60f)]
     [SerializeField] float leanMultipler = 35f;
+    [SerializeField] float segmentLength = 1f;
     [SerializeField] List<LimbPairing> limbs = new List<LimbPairing>();
     float Timer = 0;
 
@@ -22,6 +23,10 @@ public class IKManager : MonoBehaviour
             limbPair.trailingLimb.animTime = animTime;
             limbPair.leadingLimb.leanMultipler = leanMultipler;
             limbPair.trailingLimb.leanMultipler = leanMultipler;
+            limbPair.leadingLimb.segmentLength = segmentLength;
+            limbPair.trailingLimb.segmentLength = segmentLength;
+            limbPair.leadingLimb.Refresh();
+            limbPair.trailingLimb.Refresh();
         }
     }
 

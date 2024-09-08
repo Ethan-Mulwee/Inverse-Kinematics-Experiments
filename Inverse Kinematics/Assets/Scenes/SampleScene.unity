@@ -151,7 +151,7 @@ MonoBehaviour:
   animTime: 0.1
   leanMultipler: 15
   Iterations: 2
-  SegmentLength: 2
+  segmentLength: 2
   poleTarget: {fileID: 1369114851}
   rayTarget: {fileID: 1456304578}
 --- !u!4 &499787878
@@ -296,7 +296,7 @@ MonoBehaviour:
   animTime: 0.1
   leanMultipler: 15
   Iterations: 2
-  SegmentLength: 2
+  segmentLength: 2
   poleTarget: {fileID: 585295986}
   rayTarget: {fileID: 2029265392}
 --- !u!4 &593800132
@@ -717,7 +717,7 @@ MonoBehaviour:
   animTime: 0.1
   leanMultipler: 15
   Iterations: 2
-  SegmentLength: 2
+  segmentLength: 2
   poleTarget: {fileID: 851741344}
   rayTarget: {fileID: 653712209}
 --- !u!4 &846724168
@@ -923,7 +923,7 @@ MonoBehaviour:
   animTime: 0.1
   leanMultipler: 15
   Iterations: 2
-  SegmentLength: 2
+  segmentLength: 2
   poleTarget: {fileID: 805711932}
   rayTarget: {fileID: 521714326}
 --- !u!4 &1039419655
@@ -1190,7 +1190,7 @@ MonoBehaviour:
   animTime: 0.1
   leanMultipler: 15
   Iterations: 2
-  SegmentLength: 2
+  segmentLength: 2
   poleTarget: {fileID: 1701134099}
   rayTarget: {fileID: 1011311306}
 --- !u!4 &1349647031
@@ -1307,6 +1307,7 @@ MonoBehaviour:
   stepTime: 0.25
   animTime: 0.1
   leanMultipler: 15
+  segmentLength: 2
   limbs:
   - leadingLimb: {fileID: 499787877}
     trailingLimb: {fileID: 1349647030}
@@ -1396,7 +1397,7 @@ Transform:
   m_GameObject: {fileID: 1593624291}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.17, y: -3.103, z: 2.39}
+  m_LocalPosition: {x: -8.55, y: -2.673, z: -0.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1502,7 +1503,7 @@ MonoBehaviour:
   animTime: 0.1
   leanMultipler: 15
   Iterations: 2
-  SegmentLength: 2
+  segmentLength: 2
   poleTarget: {fileID: 1606043833}
   rayTarget: {fileID: 515256561}
 --- !u!4 &1951801955

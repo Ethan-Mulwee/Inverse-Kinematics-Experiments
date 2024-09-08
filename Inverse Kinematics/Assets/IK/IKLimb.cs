@@ -9,7 +9,7 @@ public class IKLimb : MonoBehaviour
     public float animTime = 0.1f;
     public float leanMultipler = 35f;
     [SerializeField] uint Iterations;
-    [SerializeField] float SegmentLength;
+    public float segmentLength;
     [SerializeField] GameObject poleTarget;
     [SerializeField] GameObject rayTarget;
     Vector3 Target = Vector3.zero;
@@ -21,10 +21,13 @@ public class IKLimb : MonoBehaviour
 
 
     void OnEnable() {
-        limb = new Limb(2, SegmentLength);
+        Refresh();
     }
     void OnValidate() {
-        limb = new Limb(2, SegmentLength);
+        Refresh();
+    }
+    public void Refresh() {
+        limb = new Limb(2,segmentLength);
     }
 
     void Update()
@@ -43,7 +46,7 @@ public class IKLimb : MonoBehaviour
 
     private void CheckOverextension()
     {
-        if (Vector3.Distance(transform.position, End) > 2 * SegmentLength) {
+        if (Vector3.Distance(transform.position, End) > 2 * segmentLength) {
             lastTarget = animTarget1;
             animTarget1 = Target;
         }
