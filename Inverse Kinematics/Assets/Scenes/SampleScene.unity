@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animTime: 0.1
+  leanMultipler: 35
   Iterations: 2
   SegmentLength: 2
   poleTarget: {fileID: 1369114851}
@@ -293,6 +294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animTime: 0.1
+  leanMultipler: 35
   Iterations: 2
   SegmentLength: 2
   poleTarget: {fileID: 585295986}
@@ -713,6 +715,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animTime: 0.1
+  leanMultipler: 35
   Iterations: 2
   SegmentLength: 2
   poleTarget: {fileID: 851741344}
@@ -869,7 +872,7 @@ GameObject:
   m_Layer: 0
   m_Name: rayTarget
   m_TagString: Untagged
-  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -918,6 +921,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animTime: 0.1
+  leanMultipler: 35
   Iterations: 2
   SegmentLength: 2
   poleTarget: {fileID: 805711932}
@@ -1184,6 +1188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animTime: 0.1
+  leanMultipler: 35
   Iterations: 2
   SegmentLength: 2
   poleTarget: {fileID: 1701134099}
@@ -1248,7 +1253,7 @@ GameObject:
   m_Layer: 0
   m_Name: rayTarget
   m_TagString: Untagged
-  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1301,6 +1306,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stepTime: 0.25
   animTime: 0.1
+  leanMultipler: 35
   limbs:
   - leadingLimb: {fileID: 499787877}
     trailingLimb: {fileID: 1349647030}
@@ -1390,7 +1396,7 @@ Transform:
   m_GameObject: {fileID: 1593624291}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.718, y: -3.103, z: -0.89}
+  m_LocalPosition: {x: -18.95, y: -3.103, z: -1.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1494,6 +1500,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animTime: 0.1
+  leanMultipler: 35
   Iterations: 2
   SegmentLength: 2
   poleTarget: {fileID: 1606043833}

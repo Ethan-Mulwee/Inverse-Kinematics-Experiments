@@ -13,7 +13,8 @@ public class IKLimb : MonoBehaviour
     [SerializeField] GameObject poleTarget;
     [SerializeField] GameObject rayTarget;
     Vector3 Target = Vector3.zero;
-    Vector3 animTarget = Vector3.zero;
+    Vector3 animTarget1 = Vector3.zero;
+    Vector3 animTarget2 = Vector3.zero;
     Vector3 End = Vector3.zero;
     Limb limb;
     Vector3 stepVelocity = Vector3.zero;
@@ -29,19 +30,31 @@ public class IKLimb : MonoBehaviour
     void Update()
     {
         GetVelocity();
+        GetTarget();
+        CheckOverextension();
+        animTarget2 = Vector3.SmoothDamp(animTarget2, animTarget1, ref stepVelocity, animTime);
+        End = animTarget2;
+        limb.PoleTarget(poleTarget.transform.position);
+        limb.FABRIK(Iterations, gameObject.transform.position, End);
+    }
+
+    private void CheckOverextension()
+    {
+        if (Vector3.Distance(transform.position, End) > 2 * SegmentLength)
+        {
+            animTarget1 = Target;
+        }
+    }
+
+    private void GetTarget()
+    {
         RaycastHit hit;
-        Vector3 direction = Vector3.Normalize(rayTarget.transform.position+(smoothVelocity*40)-transform.position);
+        Vector3 direction = Vector3.Normalize(rayTarget.transform.position + (smoothVelocity * leanMultipler) - transform.position);
         Debug.DrawRay(transform.position, direction);
         if (Physics.SphereCast(transform.position, 0.5f, direction, out hit))
         {
             Target = hit.point;
-            if (Vector3.Distance(transform.position, End) > 2*SegmentLength) {
-                animTarget = Target;
-            }
         }
-        End = Vector3.SmoothDamp(End, animTarget, ref stepVelocity, animTime);
-        limb.PoleTarget(poleTarget.transform.position);
-        limb.FABRIK(Iterations, gameObject.transform.position, End);
     }
 
     Vector3 perviousPosition = Vector3.zero;
@@ -55,20 +68,7 @@ public class IKLimb : MonoBehaviour
     }
 
     public void Step() {
-        animTarget = Target;
-    }
-
-    private void PoleTarget(Limb limb, Vector3 End)
-    {
-        Vector3 rotatePos = Vector3.Lerp(transform.position, End, 0.5f);
-        Vector3 poleVector = poleTarget.transform.position - rotatePos;
-        Vector3 rotateUpDir = transform.position - rotatePos;
-        Vector3 projectedVector = Vector3.ProjectOnPlane(poleVector, rotateUpDir);
-        Vector3 differenceVector = limb.Segments[1].a - rotatePos;
-        projectedVector.Normalize();
-        projectedVector = projectedVector * differenceVector.magnitude;
-        limb.Segments[1].a = projectedVector+rotatePos;
-        limb.Segments[0].b = projectedVector+rotatePos;
+        animTarget1 = Target;
     }
 
     void OnDrawGizmos() {
