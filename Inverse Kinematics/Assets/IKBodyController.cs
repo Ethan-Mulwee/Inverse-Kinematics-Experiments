@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[ExecuteAlways]
+
 [RequireComponent(typeof(IKManager), typeof(Rigidbody))]
 public class IKBodyController : MonoBehaviour
 {
@@ -10,6 +10,7 @@ public class IKBodyController : MonoBehaviour
     IKManager ik;
     Vector3 input;
     Vector3 target;
+    Vector3 orientation = Vector3.up;
     [SerializeField] float Height =  2f;
 
     void OnValidate() {
@@ -42,13 +43,17 @@ public class IKBodyController : MonoBehaviour
         }
     }
 
+    Vector3 velocity;
     private void bodyPosition()
     {
         Vector3 force = target - transform.position;
-        force = new Vector3(force.x, Mathf.Clamp(force.y, -0.5f, float.PositiveInfinity), force.z);
+        force = new Vector3(force.x, Mathf.Clamp(force.y, -1f, float.PositiveInfinity), force.z);
         if(force.magnitude < 0.3f) force = force.normalized * Mathf.Sqrt(force.magnitude);
-        Debug.DrawRay(transform.position, force);
-        rb.AddForce(force * Time.deltaTime * 100f);
+        rb.AddForce(force * Time.deltaTime * 200f);
+        orientation = Vector3.SmoothDamp(orientation, ik.GetOrientation(), ref velocity, 1f);
+        //transform.up = orientation;
+        Quaternion targetRotation = Quaternion.FromToRotation(transform.up, orientation) * transform.rotation;
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 360f * Time.deltaTime);
     }
 
     private void Move()

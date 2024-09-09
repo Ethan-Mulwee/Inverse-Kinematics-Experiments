@@ -45,6 +45,7 @@ public class IKManager : MonoBehaviour
                 limbPair.Step();
             }
         }
+        GetOrientation();
     }
     [Serializable]
     class LimbPairing {
@@ -76,5 +77,23 @@ public class IKManager : MonoBehaviour
             count += 2;
         }
         return (float)total/count;
+    }
+    public Vector3 GetOrientation() {
+        Vector3 p0 = limbs[0].leadingLimb.animTarget2;
+        Vector3 p1 = limbs[0].trailingLimb.animTarget2;
+        Vector3 p2 = limbs[1].leadingLimb.animTarget2;
+	    Vector3 vec1 = p0-p1;
+	    Vector3 vec2 = p2-p1;
+	    Vector3 cross1 = Vector3.Cross(vec1, vec2);
+	    //Debug.DrawRay(transform.position, cross1);
+	    Vector3 g0 = limbs[1].trailingLimb.animTarget2;
+	    Vector3 g1 = limbs[2].leadingLimb.animTarget2;
+	    Vector3 g2 = limbs[2].trailingLimb.animTarget2;
+	    Vector3 vec3 = g1-g0;
+	    Vector3 vec4 = g2-g1;
+	    Vector3 cross2 = Vector3.Cross(vec3, vec4);
+        Debug.DrawRay(transform.position, (cross1.normalized+cross2.normalized)*0.5f);
+	    return (cross1.normalized+cross2.normalized)*0.5f; 
+
     }
 }
