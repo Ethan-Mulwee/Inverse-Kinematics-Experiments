@@ -28,14 +28,10 @@ public class IKBodyController : MonoBehaviour
     {
         GetInput();
         GetTarget();
-        Vector3 rotatedInput = Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * input;
-        rb.AddForce(rotatedInput * 10 * Time.deltaTime, ForceMode.Impulse);
-        Vector3 targetVector = target - transform.position;
-        targetVector = new Vector3(targetVector.x, Mathf.Clamp(targetVector.y, -0.5f, float.PositiveInfinity), targetVector.z);
-        Debug.DrawRay(transform.position, targetVector);
+        Move();
         HandleGravity();
-        //rb.AddForce(targetVector * Time.deltaTime * 200f, ForceMode.Force);
-        rb.position = targetVector;
+        bodyPosition();
+        //rb.position = targetVector;
         if (Input.GetKey(KeyCode.E))
         {
             transform.Rotate(new Vector3(0, 1, 0));
@@ -44,6 +40,21 @@ public class IKBodyController : MonoBehaviour
         {
             transform.Rotate(new Vector3(0, -1, 0));
         }
+    }
+
+    private void bodyPosition()
+    {
+        Vector3 force = target - transform.position;
+        force = new Vector3(force.x, Mathf.Clamp(force.y, -0.5f, float.PositiveInfinity), force.z);
+        if(force.magnitude < 0.3f) force = force.normalized * Mathf.Sqrt(force.magnitude);
+        Debug.DrawRay(transform.position, force);
+        rb.AddForce(force * Time.deltaTime * 100f);
+    }
+
+    private void Move()
+    {
+        Vector3 rotatedInput = Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * input;
+        rb.AddForce(rotatedInput * 10 * Time.deltaTime, ForceMode.Impulse);
     }
 
     private void HandleGravity()

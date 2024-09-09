@@ -14,8 +14,8 @@ public class IKLimb : MonoBehaviour
     [SerializeField] GameObject rayTarget;
     Vector3 Target = Vector3.zero;
     Vector3 animTarget1 = Vector3.zero;
-    public Vector3 animTarget2 = Vector3.zero;
-    Vector3 End = Vector3.zero;
+    Vector3 animTarget2 = Vector3.zero;
+    public Vector3 End = Vector3.zero;
     Limb limb;
     Vector3 stepVelocity = Vector3.zero;
     public bool Grounded;

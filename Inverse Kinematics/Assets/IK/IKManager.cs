@@ -61,8 +61,8 @@ public class IKManager : MonoBehaviour
         Vector3 total = Vector3.zero;
         int count = 0;
         foreach (LimbPairing limbPair in limbs) {
-            total += limbPair.leadingLimb.animTarget2;
-            total += limbPair.trailingLimb.animTarget2;
+            total += limbPair.leadingLimb.End;
+            total += limbPair.trailingLimb.End;
             count += 2;
         }
         return total/count;
