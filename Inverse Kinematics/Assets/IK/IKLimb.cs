@@ -50,9 +50,9 @@ public class IKLimb : MonoBehaviour
         if (Vector3.Distance(transform.position, End) > 2 * segmentLength) {
             lastTarget = animTarget1;
             animTarget1 = Target;
-            Grounded = true;
-        } else {
             Grounded = false;
+        } else {
+            Grounded = true;
         }
     }
 

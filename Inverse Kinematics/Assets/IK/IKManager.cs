@@ -67,4 +67,14 @@ public class IKManager : MonoBehaviour
         }
         return total/count;
     }
+    public float GroundedFactor() {
+        int total = 0;
+        int count = 0;
+        foreach (LimbPairing limbPair in limbs) {
+            if (limbPair.leadingLimb.Grounded) total += 1;
+            if (limbPair.trailingLimb.Grounded) total += 1;
+            count += 2;
+        }
+        return (float)total/count;
+    }
 }
