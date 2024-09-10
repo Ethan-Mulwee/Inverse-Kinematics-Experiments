@@ -63,7 +63,7 @@ public class IKBodyController : MonoBehaviour
         rb.AddForce(PID(transform.position, target)*ik.GroundedFactor());
         //rb.transform.position = target;
         //rb.MovePosition(target);
-        orientation = Vector3.SmoothDamp(orientation, ik.GetOrientation(), ref velocity, 1f);
+        orientation = Vector3.SmoothDamp(orientation, ik.GetOrientation(), ref velocity, 0.7f);
         //transform.up = orientation;
         Quaternion targetRotation = Quaternion.FromToRotation(transform.up, orientation) * transform.rotation;
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 360f * Time.deltaTime);
@@ -104,12 +104,6 @@ public class IKBodyController : MonoBehaviour
     //Fix to be averagePos + height along orientation
     void GetTarget() {
         Vector3 averagePos = ik.AveragePosition();
-        //float basetarget = averagePos.y+Height;
-        Vector3 basetarget = new Vector3(transform.position.x,averagePos.y, transform.position.z);
         target = Vector3.Project(averagePos, transform.up.normalized) + Vector3.ProjectOnPlane(transform.position, transform.up) + transform.up.normalized * Height;
-    }
-    void OnDrawGizmos() {
-        Gizmos.DrawSphere(target, 0.5f);
-        Gizmos.DrawSphere(ik.AveragePosition(), 1f);
     }
 }
