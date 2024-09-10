@@ -92,7 +92,7 @@ public class IKManager : MonoBehaviour
 	    Vector3 vec3 = g1-g0;
 	    Vector3 vec4 = g2-g1;
 	    Vector3 cross2 = Vector3.Cross(vec3, vec4);
-        Debug.DrawRay(transform.position, (cross1.normalized+cross2.normalized)*0.5f);
+        //Debug.DrawRay(transform.position, (cross1.normalized+cross2.normalized)*0.5f);
 	    return (cross1.normalized+cross2.normalized)*0.5f; 
 
     }

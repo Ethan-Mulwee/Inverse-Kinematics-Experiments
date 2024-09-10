@@ -154,7 +154,8 @@ MonoBehaviour:
   segmentLength: 2
   poleTarget: {fileID: 1369114851}
   rayTarget: {fileID: 1456304578}
-  End: {x: -1.575778, y: -1.6208624, z: -1.8115592}
+  animTarget2: {x: -11.768906, y: -2.48991, z: -4.40917}
+  End: {x: -11.768906, y: -2.48991, z: -4.40917}
   Grounded: 1
 --- !u!4 &499787878
 Transform:
@@ -301,7 +302,8 @@ MonoBehaviour:
   segmentLength: 2
   poleTarget: {fileID: 585295986}
   rayTarget: {fileID: 2029265392}
-  End: {x: -1.8464862, y: -1.30367, z: -0.36890766}
+  animTarget2: {x: -12.207677, y: -2.48991, z: -2.8498974}
+  End: {x: -12.207677, y: -2.48991, z: -2.8498974}
   Grounded: 1
 --- !u!4 &593800132
 Transform:
@@ -817,7 +819,8 @@ MonoBehaviour:
   segmentLength: 2
   poleTarget: {fileID: 851741344}
   rayTarget: {fileID: 653712209}
-  End: {x: 1.3173847, y: -1.2385033, z: -0.3994111}
+  animTarget2: {x: -8.211584, y: -2.48991, z: -2.8498967}
+  End: {x: -8.211584, y: -2.48991, z: -2.8498967}
   Grounded: 1
 --- !u!4 &846724168
 Transform:
@@ -1025,7 +1028,8 @@ MonoBehaviour:
   segmentLength: 2
   poleTarget: {fileID: 805711932}
   rayTarget: {fileID: 521714326}
-  End: {x: -1.5757776, y: -1.622527, z: 1.0127367}
+  animTarget2: {x: -11.768904, y: -2.48991, z: -1.2906232}
+  End: {x: -11.768904, y: -2.48991, z: -1.2906232}
   Grounded: 1
 --- !u!4 &1039419655
 Transform:
@@ -1294,7 +1298,8 @@ MonoBehaviour:
   segmentLength: 2
   poleTarget: {fileID: 1701134099}
   rayTarget: {fileID: 1011311306}
-  End: {x: 0.96985054, y: -0.9874221, z: -1.4898922}
+  animTarget2: {x: -8.650358, y: -2.48991, z: -4.40917}
+  End: {x: -8.650358, y: -2.48991, z: -4.40917}
   Grounded: 1
 --- !u!4 &1349647031
 Transform:
@@ -1502,7 +1507,7 @@ Transform:
   m_GameObject: {fileID: 1593624291}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.23, y: 0.48, z: -0.4}
+  m_LocalPosition: {x: -10.21, y: -0.12, z: -2.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1537,7 +1542,7 @@ Rigidbody:
   m_GameObject: {fileID: 1593624291}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0.1
+  m_Drag: 0.2
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -1652,7 +1657,8 @@ MonoBehaviour:
   segmentLength: 2
   poleTarget: {fileID: 1606043833}
   rayTarget: {fileID: 515256561}
-  End: {x: 1.0500433, y: -1.2742032, z: 0.81426233}
+  animTarget2: {x: -8.650357, y: -2.48991, z: -1.2906234}
+  End: {x: -8.650357, y: -2.48991, z: -1.2906234}
   Grounded: 1
 --- !u!4 &1951801955
 Transform:

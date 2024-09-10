@@ -33,6 +33,9 @@ public class IKBodyController : MonoBehaviour
         HandleGravity();
         bodyPosition();
         //rb.position = targetVector;
+        var mouseInput = Input.mousePositionDelta.x;
+        Cursor.lockState = CursorLockMode.Locked;
+        transform.Rotate(new Vector3(0, mouseInput*0.2f, 0));
         if (Input.GetKey(KeyCode.E))
         {
             transform.Rotate(new Vector3(0, 1, 0));
@@ -48,8 +51,10 @@ public class IKBodyController : MonoBehaviour
     {
         Vector3 force = target - transform.position;
         force = new Vector3(force.x, Mathf.Clamp(force.y, -1f, float.PositiveInfinity), force.z);
-        if(force.magnitude < 0.3f) force = force.normalized * Mathf.Sqrt(force.magnitude);
-        rb.AddForce(force * Time.deltaTime * 200f);
+        if(force.magnitude < 0.5f) force = force.normalized * Mathf.Sqrt(force.magnitude);
+        //rb.AddForce(force * Time.deltaTime*200);
+        //rb.transform.position = target;
+        rb.MovePosition(target);
         orientation = Vector3.SmoothDamp(orientation, ik.GetOrientation(), ref velocity, 1f);
         //transform.up = orientation;
         Quaternion targetRotation = Quaternion.FromToRotation(transform.up, orientation) * transform.rotation;
@@ -71,8 +76,11 @@ public class IKBodyController : MonoBehaviour
         input = new Vector3(Input.GetAxis("Horizontal"), 0 , Input.GetAxis("Vertical"));
     }
 
+    float velocity2;
+    //Fix to be averagePos + height along orientation
     void GetTarget() {
         Vector3 averagePos = ik.AveragePosition();
-        target = new Vector3(transform.position.x, averagePos.y+Height, transform.position.z);
+        float basetarget = averagePos.y+Height;
+        target = new Vector3(transform.position.x,Mathf.SmoothDamp(target.y, basetarget, ref velocity2, 0.1f), transform.position.z);
     }
 }
