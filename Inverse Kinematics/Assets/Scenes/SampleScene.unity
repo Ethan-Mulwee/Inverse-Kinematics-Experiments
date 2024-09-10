@@ -1747,6 +1747,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Height: 2
+  kp: 2
+  ki: 0.005
+  kd: 10
 --- !u!54 &1593624299
 Rigidbody:
   m_ObjectHideFlags: 0
