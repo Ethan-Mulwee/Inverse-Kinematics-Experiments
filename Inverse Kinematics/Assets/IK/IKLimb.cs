@@ -61,7 +61,7 @@ public class IKLimb : MonoBehaviour
     {
         RaycastHit hit;
         Vector3 direction = Vector3.Normalize(rayTarget.transform.position + (smoothVelocity * leanMultipler) - transform.position);
-        Debug.DrawRay(transform.position, direction);
+        //Debug.DrawRay(transform.position, direction);
         if (Physics.SphereCast(transform.position, 0.5f, direction, out hit))
         {
             Target = hit.point;

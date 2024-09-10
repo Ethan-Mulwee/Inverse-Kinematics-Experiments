@@ -368,8 +368,8 @@ MonoBehaviour:
   segmentLength: 2
   poleTarget: {fileID: 1369114851}
   rayTarget: {fileID: 1456304578}
-  animTarget2: {x: -11.769331, y: -2.49, z: -4.40933}
-  End: {x: -11.769331, y: -2.49, z: -4.40933}
+  animTarget2: {x: -10.050485, y: -2.1263492, z: -3.7653716}
+  End: {x: -10.050485, y: -1.1263492, z: -3.7653716}
   Grounded: 1
 --- !u!4 &499787878
 Transform:
@@ -516,8 +516,8 @@ MonoBehaviour:
   segmentLength: 2
   poleTarget: {fileID: 585295986}
   rayTarget: {fileID: 2029265392}
-  animTarget2: {x: -12.208118, y: -2.49, z: -2.8500004}
-  End: {x: -12.208118, y: -2.49, z: -2.8500004}
+  animTarget2: {x: -0.028023828, y: -0.005715813, z: -0.0065421965}
+  End: {x: -6.8448105, y: -0.07864716, z: -1.821117}
   Grounded: 1
 --- !u!4 &593800132
 Transform:
@@ -1033,9 +1033,9 @@ MonoBehaviour:
   segmentLength: 2
   poleTarget: {fileID: 851741344}
   rayTarget: {fileID: 653712209}
-  animTarget2: {x: -8.211882, y: -2.49, z: -2.8499997}
-  End: {x: -8.211882, y: -2.49, z: -2.8499997}
-  Grounded: 1
+  animTarget2: {x: -7.0125813, y: -2.1263492, z: -2.4337728}
+  End: {x: -7.0125813, y: -2.1263492, z: -2.4337728}
+  Grounded: 0
 --- !u!4 &846724168
 Transform:
   m_ObjectHideFlags: 0
@@ -1242,8 +1242,8 @@ MonoBehaviour:
   segmentLength: 2
   poleTarget: {fileID: 805711932}
   rayTarget: {fileID: 521714326}
-  animTarget2: {x: -11.769329, y: -2.49, z: -1.2906699}
-  End: {x: -11.769329, y: -2.49, z: -1.2906699}
+  animTarget2: {x: -10.050484, y: -2.1263492, z: -1.1021746}
+  End: {x: -10.050484, y: -1.1263492, z: -1.1021746}
   Grounded: 1
 --- !u!4 &1039419655
 Transform:
@@ -1726,9 +1726,9 @@ MonoBehaviour:
   segmentLength: 2
   poleTarget: {fileID: 1701134099}
   rayTarget: {fileID: 1011311306}
-  animTarget2: {x: -8.650671, y: -2.49, z: -4.40933}
-  End: {x: -8.650671, y: -2.49, z: -4.40933}
-  Grounded: 1
+  animTarget2: {x: -7.387288, y: -2.1263492, z: -3.7653716}
+  End: {x: -7.387288, y: -1.1263492, z: -3.7653716}
+  Grounded: 0
 --- !u!4 &1349647031
 Transform:
   m_ObjectHideFlags: 0
@@ -1963,7 +1963,7 @@ MonoBehaviour:
   Height: 2
   kp: 4
   ki: 0.005
-  kd: 15
+  kd: 40
 --- !u!54 &1593624299
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2302,8 +2302,8 @@ MonoBehaviour:
   segmentLength: 2
   poleTarget: {fileID: 1606043833}
   rayTarget: {fileID: 515256561}
-  animTarget2: {x: -8.65067, y: -2.49, z: -1.2906702}
-  End: {x: -8.65067, y: -2.49, z: -1.2906702}
+  animTarget2: {x: -0.019857673, y: -0.005715813, z: -0.0029627425}
+  End: {x: -5.8226633, y: -0.07415329, z: -1.408453}
   Grounded: 1
 --- !u!4 &1951801955
 Transform:
