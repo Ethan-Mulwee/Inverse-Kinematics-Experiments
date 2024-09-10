@@ -52,9 +52,9 @@ public class IKBodyController : MonoBehaviour
         Vector3 force = target - transform.position;
         force = new Vector3(force.x, Mathf.Clamp(force.y, -1f, float.PositiveInfinity), force.z);
         if(force.magnitude < 0.5f) force = force.normalized * Mathf.Sqrt(force.magnitude);
-        //rb.AddForce(force * Time.deltaTime*200);
+        rb.AddForce(force * Time.deltaTime*200);
         //rb.transform.position = target;
-        rb.MovePosition(target);
+        //rb.MovePosition(target);
         orientation = Vector3.SmoothDamp(orientation, ik.GetOrientation(), ref velocity, 1f);
         //transform.up = orientation;
         Quaternion targetRotation = Quaternion.FromToRotation(transform.up, orientation) * transform.rotation;
@@ -63,7 +63,9 @@ public class IKBodyController : MonoBehaviour
 
     private void Move()
     {
+        Quaternion targetRotation = Quaternion.FromToRotation(Vector3.forward, transform.forward);
         Vector3 rotatedInput = Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * input;
+        rotatedInput = targetRotation * input;
         rb.AddForce(rotatedInput * 10 * Time.deltaTime, ForceMode.Impulse);
     }
 
@@ -80,7 +82,11 @@ public class IKBodyController : MonoBehaviour
     //Fix to be averagePos + height along orientation
     void GetTarget() {
         Vector3 averagePos = ik.AveragePosition();
-        float basetarget = averagePos.y+Height;
-        target = new Vector3(transform.position.x,Mathf.SmoothDamp(target.y, basetarget, ref velocity2, 0.1f), transform.position.z);
+        //float basetarget = averagePos.y+Height;
+        Vector3 basetarget = new Vector3(transform.position.x,averagePos.y, transform.position.z);
+        target = averagePos + transform.up.normalized * Height;
+    }
+    void OnDrawGizmos() {
+        Gizmos.DrawSphere(target, 0.5f);
     }
 }
