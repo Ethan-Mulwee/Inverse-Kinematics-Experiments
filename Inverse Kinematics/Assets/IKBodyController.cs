@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 
@@ -106,9 +105,10 @@ public class IKBodyController : MonoBehaviour
         Vector3 averagePos = ik.AveragePosition();
         //float basetarget = averagePos.y+Height;
         Vector3 basetarget = new Vector3(transform.position.x,averagePos.y, transform.position.z);
-        target = Vector3.Project(averagePos, transform.up) + Vector3.ProjectOnPlane(transform.position, transform.up) + transform.up.normalized * Height;
+        target = Vector3.Project(averagePos, transform.up.normalized) + Vector3.ProjectOnPlane(transform.position, transform.up) + transform.up.normalized * Height;
     }
     void OnDrawGizmos() {
         Gizmos.DrawSphere(target, 0.5f);
+        Gizmos.DrawSphere(ik.AveragePosition(), 1f);
     }
 }

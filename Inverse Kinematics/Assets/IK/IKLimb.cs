@@ -41,6 +41,7 @@ public class IKLimb : MonoBehaviour
         float lastDistance = Vector3.Distance(lastTarget, animTarget1);
         float stepHeight = Mathf.Clamp(-0.5f*((stepDistance-(lastDistance))*stepDistance), 0, 1);
         End = animTarget2 + stepHeight*transform.up;
+        End = Vector3.ClampMagnitude(End-transform.position, segmentLength*2)+transform.position;
         limb.PoleTarget(poleTarget.transform.position);
         limb.FABRIK(Iterations, gameObject.transform.position, End);
     }
@@ -60,7 +61,7 @@ public class IKLimb : MonoBehaviour
     {
         RaycastHit hit;
         Vector3 direction = Vector3.Normalize(rayTarget.transform.position + (smoothVelocity * leanMultipler) - transform.position);
-        //Debug.DrawRay(transform.position, direction);
+        Debug.DrawRay(transform.position, direction);
         if (Physics.SphereCast(transform.position, 0.5f, direction, out hit))
         {
             Target = hit.point;
