@@ -80,8 +80,11 @@ public class IKLimb : MonoBehaviour
 
     Vector3 lastTarget;
     public void Step() {
-        lastTarget = animTarget1;
-        animTarget1 = Target;
+        //min step dist
+        if (Vector3.Distance(Target, End) > 0.7f) {
+            lastTarget = animTarget1;
+            animTarget1 = Target;
+        }
     }
 
     void OnDrawGizmos() {
