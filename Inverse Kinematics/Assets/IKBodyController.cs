@@ -59,8 +59,8 @@ public class IKBodyController : MonoBehaviour
         Vector3 force = target - transform.position;
         force = new Vector3(force.x, Mathf.Clamp(force.y, -1f, float.PositiveInfinity), force.z);
         if(force.magnitude < 0.5f) force = force.normalized * Mathf.Sqrt(force.magnitude);
-        rb.AddForce(force*200*Time.deltaTime);
-        //rb.AddForce(PID(transform.position, target)*ik.GroundedFactor());
+        //rb.AddForce(force*200*Time.deltaTime);
+        rb.AddForce(PID(transform.position, target)*ik.GroundedFactor());
         //rb.transform.position = target;
         //rb.MovePosition(target);
         orientation = Vector3.SmoothDamp(orientation, ik.GetOrientation(), ref velocity, 0.7f);
