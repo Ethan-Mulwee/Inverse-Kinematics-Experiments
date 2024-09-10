@@ -89,7 +89,7 @@ public class IKBodyController : MonoBehaviour
         Quaternion targetRotation2 = Quaternion.FromToRotation(Vector3.up, transform.up);
         Vector3 rotatedInput = Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * input;
         rotatedInput = transform.rotation * input;
-        rb.AddForce(rotatedInput * 10 * Time.deltaTime, ForceMode.Impulse);
+        rb.AddForce(rotatedInput * 10 * Time.deltaTime*ik.GroundedFactor(), ForceMode.Impulse);
     }
 
     private void HandleGravity()
