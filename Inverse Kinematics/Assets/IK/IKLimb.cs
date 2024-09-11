@@ -63,21 +63,28 @@ public class IKLimb : MonoBehaviour
         RaycastHit hit;
         Vector3 direction = Vector3.Normalize(rayTarget.transform.position + (smoothVelocity * leanMultipler) - transform.position);
         //Vector3 direction = Vector3.Normalize(rayTarget.transform.position - transform.position);
-        // Debug.DrawRay(transform.position, direction);
-        // int count = 0;
-        // int i = 10;
-        // while (count < i) {
-        //     count++;
-        //     Debug.DrawRay(transform.position+(direction*((float)count/i)), Vector3.Lerp(direction, transform.up*-1, (float)count/i));
-        //     if (Physics.SphereCast(transform.position+(direction*((float)count/i)), 0.5f, Vector3.Lerp(direction, Vector3.down, (float)count/i), out hit, segmentLength*2)) {
-        //         Target = hit.point;
-        //         break;
-        //     }
-        // }
-        if (Physics.SphereCast(transform.position, 0.5f, direction, out hit))
-        {
-            Target = hit.point;
+        Debug.DrawRay(transform.position, direction);
+        int count = 0;
+        int i = 10;
+        while (count < i) {
+            count++;
+            Debug.DrawRay(transform.position+(direction*((float)count/i)), Vector3.Lerp(direction, transform.up*-1, (float)count/i));
+            if (Physics.SphereCast(transform.position+(direction*((float)count/i)), 0.5f, Vector3.Lerp(direction, Vector3.down, (float)count/i), out hit, segmentLength*2)) {
+                Target = hit.point;
+                break;
+            }
+            //fallback code
+            if (count == i) {
+             if (Physics.SphereCast(transform.position, 0.5f, direction, out hit))
+                 {
+                     Target = hit.point;
+                 }
+            }
         }
+        // if (Physics.SphereCast(transform.position, 0.5f, direction, out hit))
+        // {
+        //     Target = hit.point;
+        // }
     }
 
     Vector3 perviousPosition = Vector3.zero;
@@ -93,7 +100,7 @@ public class IKLimb : MonoBehaviour
     Vector3 lastTarget;
     public void Step() {
         //min step dist
-        if (Vector3.Distance(Target, End) > 0.7f) {
+        if (Vector3.Distance(Target, End) > 0.7f && Vector3.Distance(Target,End) < segmentLength*2f) {
             lastTarget = animTarget1;
             animTarget1 = Target;
         }
