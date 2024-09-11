@@ -60,16 +60,19 @@ public class IKLimb : MonoBehaviour
     private void GetTarget()
     {
         RaycastHit hit;
-        Vector3 direction = Vector3.Normalize(rayTarget.transform.position + (smoothVelocity * leanMultipler) - transform.position);
+         Vector3 direction = Vector3.Normalize(rayTarget.transform.position + (smoothVelocity * leanMultipler) - transform.position);
+        //Vector3 direction = Vector3.Normalize(rayTarget.transform.position - transform.position);
         //Debug.DrawRay(transform.position, direction);
-        int count = 0;
-        //Quaternion test = Quaternion.FromToRotation()
-        //Debug.DrawRay(transform.position, test*direction);
-        while (count < 6) {
-            count++;
-
-            //if (Physics.Raycast(transform.position, ))
-        }
+        // int count = 0;
+        // int i = 10;
+        // while (count < i) {
+        //     count++;
+        //     Debug.DrawRay(transform.position+(direction*((float)count/i)), Vector3.Lerp(direction, transform.up*-1, (float)count/i));
+        //     if (Physics.SphereCast(transform.position+(direction*((float)count/i)), 0.5f, Vector3.Lerp(direction, Vector3.down, (float)count/i), out hit, segmentLength*2)) {
+        //         Target = hit.point;
+        //         break;
+        //     }
+        // }
         if (Physics.SphereCast(transform.position, 0.5f, direction, out hit))
         {
             Target = hit.point;
@@ -103,7 +106,7 @@ public class IKLimb : MonoBehaviour
         }
         //Gizmos.DrawSphere(lastTarget,0.3f);
         Gizmos.DrawSphere(End, 0.1f);
-        //Gizmos.DrawSphere(animTarget2, 0.3f);
+        Gizmos.DrawSphere(Target, 0.3f);
     }
 
 }
