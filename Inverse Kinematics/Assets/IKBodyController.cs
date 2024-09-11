@@ -37,7 +37,7 @@ public class IKBodyController : MonoBehaviour
         GetInput();
         GetTarget();
         Move();
-        HandleGravity();
+        //HandleGravity();
         bodyPosition();
         //rb.position = targetVector;
         var mouseInput = Input.mousePositionDelta.x;
@@ -60,16 +60,16 @@ public class IKBodyController : MonoBehaviour
         force = new Vector3(force.x, Mathf.Clamp(force.y, -1f, float.PositiveInfinity), force.z);
         if(force.magnitude < 0.5f) force = force.normalized * Mathf.Sqrt(force.magnitude);
         //rb.AddForce(force*200*Time.deltaTime);
-        rb.AddForce(PID(transform.position, target)*ik.GroundedFactor());
-        Debug.Log("Force w/ grounded factor " + PID(transform.position, target)*ik.GroundedFactor());
-        Debug.Log("Force wo/ grounded factor " + PID(transform.position, target));
-        Debug.Log(ik.GroundedFactor());
-        //rb.transform.position = target;
-        //rb.MovePosition(target);
+        rb.AddForce(Vector3.Scale(PID(transform.position, target)*ik.GroundedFactor(), transform.up));
+        //rb.AddForce(PID(transform.position, target)*ik.GroundedFactor());
+        //Debug.Log("Force w/ grounded factor " + PID(transform.position, target)*ik.GroundedFactor());
+        //Debug.Log("Force wo/ grounded factor " + PID(transform.position, target));
+        //Debug.Log(ik.GroundedFactor());
         orientation = Vector3.SmoothDamp(orientation, ik.GetOrientation(), ref velocity, 0.7f);
-        //transform.up = orientation;
+        Debug.Log("Orientation: " + orientation);
         Quaternion targetRotation = Quaternion.FromToRotation(transform.up, orientation) * transform.rotation;
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 360f * Time.deltaTime);
+        Debug.Log("rotation: " + transform.rotation);
     }
 
     Vector3 PID(Vector3 position, Vector3 target) {
