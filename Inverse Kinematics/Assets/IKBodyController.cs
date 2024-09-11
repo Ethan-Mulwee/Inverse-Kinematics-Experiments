@@ -38,7 +38,7 @@ public class IKBodyController : MonoBehaviour
         GetInput();
         GetTarget();
         Move();
-        //HandleGravity();
+        HandleGravity();
         bodyPosition();
         //rb.position = targetVector;
         var mouseInput = Input.mousePositionDelta.x;
