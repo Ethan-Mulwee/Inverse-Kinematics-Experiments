@@ -369,6 +369,7 @@ MonoBehaviour:
   poleTarget: {fileID: 1369114851}
   rayTarget: {fileID: 1456304578}
   animTarget2: {x: -3.803008, y: 10.710507, z: 13.574767}
+  ClampedEnd: {x: -3.7068505, y: 10.881727, z: 13.671559}
   End: {x: -3.803008, y: 10.710507, z: 13.574767}
   Grounded: 0
 --- !u!4 &499787878
@@ -517,6 +518,7 @@ MonoBehaviour:
   poleTarget: {fileID: 585295986}
   rayTarget: {fileID: 2029265392}
   animTarget2: {x: -4.623879, y: 10.652952, z: 15.927773}
+  ClampedEnd: {x: -4.4420815, y: 10.881199, z: 15.928605}
   End: {x: -4.623879, y: 10.652952, z: 15.927773}
   Grounded: 0
 --- !u!4 &593800132
@@ -1034,6 +1036,7 @@ MonoBehaviour:
   poleTarget: {fileID: 851741344}
   rayTarget: {fileID: 653712209}
   animTarget2: {x: 1.688221, y: 10.652952, z: 15.927808}
+  ClampedEnd: {x: 1.521589, y: 10.864985, z: 15.928577}
   End: {x: 1.688221, y: 10.652952, z: 15.927808}
   Grounded: 0
 --- !u!4 &846724168
@@ -1349,8 +1352,9 @@ MonoBehaviour:
   segmentLength: 2
   poleTarget: {fileID: 805711932}
   rayTarget: {fileID: 521714326}
-  animTarget2: {x: -3.8804486, y: 10.593504, z: 18.358225}
-  End: {x: -3.8804486, y: 10.593504, z: 18.358225}
+  animTarget2: {x: -3.8804488, y: 10.593504, z: 18.358225}
+  ClampedEnd: {x: -3.7178452, y: 10.881279, z: 18.196651}
+  End: {x: -3.8804488, y: 10.593504, z: 18.358225}
   Grounded: 0
 --- !u!4 &1039419655
 Transform:
@@ -1943,6 +1947,7 @@ MonoBehaviour:
   poleTarget: {fileID: 1701134099}
   rayTarget: {fileID: 1011311306}
   animTarget2: {x: 0.9030074, y: 10.710507, z: 13.574765}
+  ClampedEnd: {x: 0.8068497, y: 10.881727, z: 13.671557}
   End: {x: 0.9030074, y: 10.710507, z: 13.574765}
   Grounded: 0
 --- !u!4 &1349647031
@@ -2188,7 +2193,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1593624291}
   serializedVersion: 4
-  m_Mass: 0.5
+  m_Mass: 1
   m_Drag: 0.2
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -2626,6 +2631,7 @@ MonoBehaviour:
   poleTarget: {fileID: 1606043833}
   rayTarget: {fileID: 515256561}
   animTarget2: {x: 0.9804491, y: 10.593504, z: 18.358225}
+  ClampedEnd: {x: 0.8178452, y: 10.881279, z: 18.196651}
   End: {x: 0.9804491, y: 10.593504, z: 18.358225}
   Grounded: 0
 --- !u!4 &1951801955

@@ -32,7 +32,7 @@ public class IKLimb : MonoBehaviour
         limb = new Limb(2,segmentLength);
     }
 
-    void Update()
+    public void CallUpdate()
     {
         GetVelocity();
         GetTarget();

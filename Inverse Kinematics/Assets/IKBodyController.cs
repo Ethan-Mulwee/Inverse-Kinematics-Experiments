@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -79,7 +78,7 @@ public class IKBodyController : MonoBehaviour
         Vector3 deltaError = error-perviousError;
         cumulativeError += error;
         force += error*kp;
-        force += error*ki;
+        force += cumulativeError*ki;
         force += deltaError*kd;
         
         perviousError = error;
@@ -114,5 +113,6 @@ public class IKBodyController : MonoBehaviour
 
     void OnDrawGizmos() {
         Gizmos.DrawSphere(ik.AveragePosition(), 1f);
+        Gizmos.DrawSphere(target, 0.7f);
     }
 }

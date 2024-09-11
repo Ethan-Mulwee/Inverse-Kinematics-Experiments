@@ -38,6 +38,7 @@ public class IKManager : MonoBehaviour
     }
 
     void Update() {
+        UpdateLimbs();
         Timer += Time.deltaTime;
         if (Timer > stepTime) {
             Timer = 0;
@@ -46,6 +47,13 @@ public class IKManager : MonoBehaviour
             }
         }
         GetOrientation();
+    }
+
+    void UpdateLimbs() {
+        foreach(LimbPairing limbPair in limbs) {
+            limbPair.leadingLimb.CallUpdate();
+            limbPair.trailingLimb.CallUpdate();
+        }
     }
     [Serializable]
     class LimbPairing {
@@ -59,16 +67,18 @@ public class IKManager : MonoBehaviour
         }
     }
     public Vector3 AveragePosition() {
+        //UpdateLimbs();
         Vector3 total = Vector3.zero;
         int count = 0;
         foreach (LimbPairing limbPair in limbs) {
-            if (limbPair.leadingLimb.Grounded) total += limbPair.leadingLimb.ClampedEnd;
-            if (limbPair.trailingLimb.Grounded) total += limbPair.trailingLimb.ClampedEnd;
+            total += limbPair.leadingLimb.ClampedEnd;
+            total += limbPair.trailingLimb.ClampedEnd;
             count += 2;
         }
         return total/count;
     }
     public float GroundedFactor() {
+        //UpdateLimbs();
         int total = 0;
         int count = 0;
         foreach (LimbPairing limbPair in limbs) {
