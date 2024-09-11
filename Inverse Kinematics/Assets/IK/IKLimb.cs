@@ -20,6 +20,7 @@ public class IKLimb : MonoBehaviour
     Limb limb;
     Vector3 stepVelocity = Vector3.zero;
     public bool Grounded;
+    public Vector3 Normal = Vector3.up;
 
 
     void OnEnable() {
@@ -71,6 +72,7 @@ public class IKLimb : MonoBehaviour
             Debug.DrawRay(transform.position+(direction*((float)count/i)), Vector3.Lerp(direction, transform.up*-1, (float)count/i));
             if (Physics.Raycast(transform.position+(direction*((float)count/i)), Vector3.Lerp(direction, Vector3.down, (float)count/i), out hit, segmentLength*2)) {
                 Target = hit.point;
+                Normal = hit.normal;
                 break;
             }
             //fallback code
@@ -78,6 +80,7 @@ public class IKLimb : MonoBehaviour
              if (Physics.SphereCast(transform.position, 0.5f, direction, out hit))
                  {
                      Target = hit.point;
+                     Target=hit.normal;
                  }
             }
         }
