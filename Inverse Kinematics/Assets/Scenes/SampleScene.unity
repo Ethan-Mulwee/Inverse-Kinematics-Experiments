@@ -368,9 +368,9 @@ MonoBehaviour:
   segmentLength: 2
   poleTarget: {fileID: 1369114851}
   rayTarget: {fileID: 1456304578}
-  animTarget2: {x: -12.186601, y: -2.49, z: -4.8266}
-  End: {x: -12.186601, y: -2.4899762, z: -4.8266}
-  Grounded: 1
+  animTarget2: {x: -3.803008, y: 10.710507, z: 13.574767}
+  End: {x: -3.803008, y: 10.710507, z: 13.574767}
+  Grounded: 0
 --- !u!4 &499787878
 Transform:
   m_ObjectHideFlags: 0
@@ -516,9 +516,9 @@ MonoBehaviour:
   segmentLength: 2
   poleTarget: {fileID: 585295986}
   rayTarget: {fileID: 2029265392}
-  animTarget2: {x: -12.934775, y: -2.49, z: -2.8500004}
-  End: {x: -12.934775, y: -2.4899993, z: -2.8500004}
-  Grounded: 1
+  animTarget2: {x: -4.623879, y: 10.652952, z: 15.927773}
+  End: {x: -4.623879, y: 10.652952, z: 15.927773}
+  Grounded: 0
 --- !u!4 &593800132
 Transform:
   m_ObjectHideFlags: 0
@@ -1033,9 +1033,9 @@ MonoBehaviour:
   segmentLength: 2
   poleTarget: {fileID: 851741344}
   rayTarget: {fileID: 653712209}
-  animTarget2: {x: -7.62177, y: -2.49, z: -2.8499997}
-  End: {x: -7.62177, y: -2.489974, z: -2.8499997}
-  Grounded: 1
+  animTarget2: {x: 1.688221, y: 10.652952, z: 15.927808}
+  End: {x: 1.688221, y: 10.652952, z: 15.927808}
+  Grounded: 0
 --- !u!4 &846724168
 Transform:
   m_ObjectHideFlags: 0
@@ -1349,9 +1349,9 @@ MonoBehaviour:
   segmentLength: 2
   poleTarget: {fileID: 805711932}
   rayTarget: {fileID: 521714326}
-  animTarget2: {x: -12.427627, y: -2.49, z: -0.63237256}
-  End: {x: -12.427627, y: -2.49, z: -0.6323726}
-  Grounded: 1
+  animTarget2: {x: -3.8804486, y: 10.593504, z: 18.358225}
+  End: {x: -3.8804486, y: 10.593504, z: 18.358225}
+  Grounded: 0
 --- !u!4 &1039419655
 Transform:
   m_ObjectHideFlags: 0
@@ -1942,9 +1942,9 @@ MonoBehaviour:
   segmentLength: 2
   poleTarget: {fileID: 1701134099}
   rayTarget: {fileID: 1011311306}
-  animTarget2: {x: -8.356435, y: -2.49, z: -4.703565}
-  End: {x: -8.356435, y: -2.4748611, z: -4.703565}
-  Grounded: 1
+  animTarget2: {x: 0.9030074, y: 10.710507, z: 13.574765}
+  End: {x: 0.9030074, y: 10.710507, z: 13.574765}
+  Grounded: 0
 --- !u!4 &1349647031
 Transform:
   m_ObjectHideFlags: 0
@@ -2151,7 +2151,7 @@ Transform:
   m_GameObject: {fileID: 1593624291}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.21, y: -0.12, z: -2.85}
+  m_LocalPosition: {x: -1.45, y: 14.01, z: 15.94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2188,7 +2188,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1593624291}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 0.5
   m_Drag: 0.2
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -2625,9 +2625,9 @@ MonoBehaviour:
   segmentLength: 2
   poleTarget: {fileID: 1606043833}
   rayTarget: {fileID: 515256561}
-  animTarget2: {x: -8.10688, y: -2.49, z: -0.74688053}
-  End: {x: -8.10688, y: -2.49, z: -0.74688053}
-  Grounded: 1
+  animTarget2: {x: 0.9804491, y: 10.593504, z: 18.358225}
+  End: {x: 0.9804491, y: 10.593504, z: 18.358225}
+  Grounded: 0
 --- !u!4 &1951801955
 Transform:
   m_ObjectHideFlags: 0

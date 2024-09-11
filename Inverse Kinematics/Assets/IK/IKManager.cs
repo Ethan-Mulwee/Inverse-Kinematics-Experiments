@@ -62,8 +62,8 @@ public class IKManager : MonoBehaviour
         Vector3 total = Vector3.zero;
         int count = 0;
         foreach (LimbPairing limbPair in limbs) {
-            total += limbPair.leadingLimb.End;
-            total += limbPair.trailingLimb.End;
+            if (limbPair.leadingLimb.Grounded) total += limbPair.leadingLimb.ClampedEnd;
+            if (limbPair.trailingLimb.Grounded) total += limbPair.trailingLimb.ClampedEnd;
             count += 2;
         }
         return total/count;

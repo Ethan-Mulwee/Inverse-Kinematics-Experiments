@@ -15,7 +15,7 @@ public class IKLimb : MonoBehaviour
     Vector3 Target = Vector3.zero;
     Vector3 animTarget1 = Vector3.zero;
     public Vector3 animTarget2 = Vector3.zero;
-    Vector3 ClampedEnd = Vector3.zero;
+    public Vector3 ClampedEnd = Vector3.zero;
     public Vector3 End = Vector3.zero;
     Limb limb;
     Vector3 stepVelocity = Vector3.zero;
@@ -107,6 +107,7 @@ public class IKLimb : MonoBehaviour
         }
         //Gizmos.DrawSphere(lastTarget,0.3f);
         Gizmos.DrawSphere(End, 0.1f);
+        Gizmos.DrawSphere(ClampedEnd, 0.2f);
         Gizmos.DrawSphere(Target, 0.3f);
     }
 
