@@ -105,7 +105,7 @@ public class IKBodyController : MonoBehaviour
     }
 
     void OnDrawGizmos() {
-        Gizmos.DrawSphere(ik.AveragePosition(), 1f);
-        Gizmos.DrawSphere(target, 0.7f);
+        //Gizmos.DrawSphere(ik.AveragePosition(), 1f);
+        //Gizmos.DrawSphere(target, 0.7f);
     }
 }

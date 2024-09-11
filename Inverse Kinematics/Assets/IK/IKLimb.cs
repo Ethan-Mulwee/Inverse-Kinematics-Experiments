@@ -69,7 +69,7 @@ public class IKLimb : MonoBehaviour
         while (count < i) {
             count++;
             Debug.DrawRay(transform.position+(direction*((float)count/i)), Vector3.Lerp(direction, transform.up*-1, (float)count/i));
-            if (Physics.SphereCast(transform.position+(direction*((float)count/i)), 0.5f, Vector3.Lerp(direction, Vector3.down, (float)count/i), out hit, segmentLength*2)) {
+            if (Physics.Raycast(transform.position+(direction*((float)count/i)), Vector3.Lerp(direction, Vector3.down, (float)count/i), out hit, segmentLength*2)) {
                 Target = hit.point;
                 break;
             }
@@ -81,10 +81,6 @@ public class IKLimb : MonoBehaviour
                  }
             }
         }
-        // if (Physics.SphereCast(transform.position, 0.5f, direction, out hit))
-        // {
-        //     Target = hit.point;
-        // }
     }
 
     Vector3 perviousPosition = Vector3.zero;
@@ -114,8 +110,8 @@ public class IKLimb : MonoBehaviour
         }
         //Gizmos.DrawSphere(lastTarget,0.3f);
         Gizmos.DrawSphere(End, 0.1f);
-        Gizmos.DrawSphere(ClampedEnd, 0.2f);
-        Gizmos.DrawSphere(Target, 0.3f);
+        //Gizmos.DrawSphere(ClampedEnd, 0.2f);
+        //Gizmos.DrawSphere(Target, 0.3f);
     }
 
 }
