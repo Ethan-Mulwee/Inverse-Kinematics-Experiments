@@ -15,6 +15,7 @@ public class IKLimb : MonoBehaviour
     Vector3 Target = Vector3.zero;
     Vector3 animTarget1 = Vector3.zero;
     public Vector3 animTarget2 = Vector3.zero;
+    Vector3 ClampedEnd = Vector3.zero;
     public Vector3 End = Vector3.zero;
     Limb limb;
     Vector3 stepVelocity = Vector3.zero;
@@ -41,9 +42,9 @@ public class IKLimb : MonoBehaviour
         float lastDistance = Vector3.Distance(lastTarget, animTarget1);
         float stepHeight = Mathf.Clamp(-0.5f*((stepDistance-(lastDistance))*stepDistance), 0, 1);
         End = animTarget2 + stepHeight*transform.up;
-        End = Vector3.ClampMagnitude(End-transform.position, segmentLength*2)+transform.position;
+        ClampedEnd = Vector3.ClampMagnitude(End-transform.position, segmentLength*2)+transform.position;
         limb.PoleTarget(poleTarget.transform.position);
-        limb.FABRIK(Iterations, gameObject.transform.position, End);
+        limb.FABRIK(Iterations, gameObject.transform.position, ClampedEnd);
     }
 
     private void CheckOverextension()
@@ -60,9 +61,9 @@ public class IKLimb : MonoBehaviour
     private void GetTarget()
     {
         RaycastHit hit;
-         Vector3 direction = Vector3.Normalize(rayTarget.transform.position + (smoothVelocity * leanMultipler) - transform.position);
+        Vector3 direction = Vector3.Normalize(rayTarget.transform.position + (smoothVelocity * leanMultipler) - transform.position);
         //Vector3 direction = Vector3.Normalize(rayTarget.transform.position - transform.position);
-        //Debug.DrawRay(transform.position, direction);
+        // Debug.DrawRay(transform.position, direction);
         // int count = 0;
         // int i = 10;
         // while (count < i) {
