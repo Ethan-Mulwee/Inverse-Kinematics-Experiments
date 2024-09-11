@@ -47,7 +47,7 @@ public class IKLimb : MonoBehaviour
         limb.FABRIK(Iterations, gameObject.transform.position, ClampedEnd);
     }
 
-    private void CheckOverextension()
+    void CheckOverextension()
     {
         if (Vector3.Distance(transform.position, End) > 2 * segmentLength) {
             lastTarget = animTarget1;

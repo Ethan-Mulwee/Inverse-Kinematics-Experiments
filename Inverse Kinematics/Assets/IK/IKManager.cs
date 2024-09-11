@@ -46,7 +46,6 @@ public class IKManager : MonoBehaviour
             }
         }
         GetOrientation();
-        Debug.Log(GroundedFactor());
     }
     [Serializable]
     class LimbPairing {

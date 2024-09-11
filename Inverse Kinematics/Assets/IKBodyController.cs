@@ -37,7 +37,7 @@ public class IKBodyController : MonoBehaviour
         GetInput();
         GetTarget();
         Move();
-        HandleGravity();
+        //HandleGravity();
         bodyPosition();
         //rb.position = targetVector;
         var mouseInput = Input.mousePositionDelta.x;
@@ -61,6 +61,9 @@ public class IKBodyController : MonoBehaviour
         if(force.magnitude < 0.5f) force = force.normalized * Mathf.Sqrt(force.magnitude);
         //rb.AddForce(force*200*Time.deltaTime);
         rb.AddForce(PID(transform.position, target)*ik.GroundedFactor());
+        Debug.Log("Force w/ grounded factor " + PID(transform.position, target)*ik.GroundedFactor());
+        Debug.Log("Force wo/ grounded factor " + PID(transform.position, target));
+        Debug.Log(ik.GroundedFactor());
         //rb.transform.position = target;
         //rb.MovePosition(target);
         orientation = Vector3.SmoothDamp(orientation, ik.GetOrientation(), ref velocity, 0.7f);
