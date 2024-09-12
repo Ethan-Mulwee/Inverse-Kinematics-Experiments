@@ -64,12 +64,12 @@ public class IKLimb : MonoBehaviour
         RaycastHit hit;
         Vector3 direction = Vector3.Normalize(rayTarget.transform.position + (smoothVelocity * leanMultipler) - transform.position);
         //Vector3 direction = Vector3.Normalize(rayTarget.transform.position - transform.position);
-        Debug.DrawRay(transform.position, direction);
+        //Debug.DrawRay(transform.position, direction);
         int count = 0;
         int i = 10;
         while (count < i) {
             count++;
-            Debug.DrawRay(transform.position+(direction*((float)count/i)), Vector3.Lerp(direction, transform.up*-1, (float)count/i));
+            //Debug.DrawRay(transform.position+(direction*((float)count/i)), Vector3.Lerp(direction, transform.up*-1, (float)count/i));
             if (Physics.Raycast(transform.position+(direction*((float)count/i)), Vector3.Lerp(direction, Vector3.down, (float)count/i), out hit, segmentLength*2)) {
                 Target = hit.point;
                 Normal = hit.normal;
@@ -77,11 +77,11 @@ public class IKLimb : MonoBehaviour
             }
             //fallback code
             if (count == i) {
-             if (Physics.SphereCast(transform.position, 0.5f, direction, out hit))
-                 {
+             if (Physics.SphereCast(transform.position, 0.5f, direction, out hit)) {
+                     Target = hit.normal;
                      Target = hit.point;
-                     Target=hit.normal;
-                 }
+                     break;
+                 } 
             }
         }
     }
@@ -113,8 +113,9 @@ public class IKLimb : MonoBehaviour
         }
         //Gizmos.DrawSphere(lastTarget,0.3f);
         Gizmos.DrawSphere(End, 0.1f);
-        //Gizmos.DrawSphere(ClampedEnd, 0.2f);
-        //Gizmos.DrawSphere(Target, 0.3f);
+        Gizmos.DrawSphere(ClampedEnd, 0.2f);
+        Gizmos.DrawSphere(Target, 0.2f);
+        //Gizmos.DrawSphere(new Vector3(-65.08f,-3f, 64.54f), 0.1f);
     }
 
 }

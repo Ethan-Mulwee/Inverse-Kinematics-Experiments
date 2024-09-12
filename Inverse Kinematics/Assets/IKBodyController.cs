@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -43,6 +44,7 @@ public class IKBodyController : MonoBehaviour
         var mouseInput = Input.mousePositionDelta.x;
         //Cursor.lockState = CursorLockMode.Locked;
         //transform.Rotate(new Vector3(0, mouseInput*0.2f, 0));
+        Debug.Log(Input.GetAxis("Camera"));
         if (Input.GetKey(KeyCode.E))
         {
             transform.Rotate(new Vector3(0, 1, 0));
@@ -51,6 +53,7 @@ public class IKBodyController : MonoBehaviour
         {
             transform.Rotate(new Vector3(0, -1, 0));
         }
+        transform.Rotate(new Vector3(0, Input.GetAxis("Camera"), 0));
     }
 
     Vector3 velocity;
