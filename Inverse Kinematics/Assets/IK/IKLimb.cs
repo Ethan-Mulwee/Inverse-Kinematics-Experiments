@@ -114,9 +114,9 @@ public class IKLimb : MonoBehaviour
             Handles.DrawLine(segment.a, segment.b, 6f);
         }
         //Gizmos.DrawSphere(lastTarget,0.3f);
-        Gizmos.DrawSphere(End, 0.1f);
+        //Gizmos.DrawSphere(End, 0.1f);
         Gizmos.DrawSphere(ClampedEnd, 0.2f);
-        Gizmos.DrawSphere(Target, 0.2f);
+        //Gizmos.DrawSphere(Target, 0.2f);
         //Gizmos.DrawSphere(new Vector3(-65.08f,-3f, 64.54f), 0.1f);
     }
 

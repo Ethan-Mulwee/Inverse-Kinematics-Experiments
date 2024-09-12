@@ -20,6 +20,7 @@ public class IKBodyController : MonoBehaviour
     [SerializeField] float kd = 10f;
     Vector3 cumulativeError = Vector3.zero;
     Vector3 perviousError = Vector3.zero;
+    float jumpCharge;
 
     void OnValidate() {
         Intialize();
@@ -50,6 +51,14 @@ public class IKBodyController : MonoBehaviour
         if (Input.GetKey(KeyCode.Q))
         {
             transform.Rotate(new Vector3(0, -1, 0));
+        }
+        if (Input.GetKey(KeyCode.Space)) {
+            jumpCharge += 1*Time.deltaTime;
+            jumpCharge = Mathf.Clamp(jumpCharge, 0, 1);
+        }
+        if (Input.GetKeyUp(KeyCode.Space)) {
+            rb.AddForce(transform.up*jumpCharge*600);
+            jumpCharge = 0;
         }
         transform.Rotate(new Vector3(0, Input.GetAxis("Camera"), 0));
     }
