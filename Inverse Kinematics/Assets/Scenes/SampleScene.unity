@@ -226,6 +226,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 43.877, y: 0, z: 0}
+--- !u!1 &305510055
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 305510056}
+  m_Layer: 0
+  m_Name: rayTarget2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &305510056
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 305510055}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.00000011921, y: -1.349, z: -0.066312}
+  m_LocalScale: {x: 0.31941, y: 0.31941, z: 0.31941}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 846724168}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &441659031
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,6 +364,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -88.599, y: 0, z: 0}
+--- !u!1 &458669767
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 458669768}
+  m_Layer: 0
+  m_Name: rayTarget2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &458669768
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 458669767}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.00000053644, y: -1.349, z: 0.074644}
+  m_LocalScale: {x: 0.31941, y: 0.31941, z: 0.31941}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1951801955}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &499787876
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,13 +427,15 @@ MonoBehaviour:
   animTime: 0.1
   leanMultipler: 15
   Iterations: 2
-  segmentLength: 2
+  segmentLength: 1.92
   poleTarget: {fileID: 1369114851}
-  rayTarget: {fileID: 1456304578}
-  animTarget2: {x: -3.4008207, y: 10.700491, z: 13.984289}
-  ClampedEnd: {x: -3.4008207, y: 10.700491, z: 13.984289}
-  End: {x: -3.4008207, y: 10.700491, z: 13.984289}
+  rayTarget1: {fileID: 1456304578}
+  rayTarget2: {fileID: 987869935}
+  animTarget2: {x: -3.2129292, y: 10.695775, z: 14.177072}
+  ClampedEnd: {x: -3.2129292, y: 10.695775, z: 14.177072}
+  End: {x: -3.2129292, y: 10.695775, z: 14.177072}
   Grounded: 1
+  Normal: {x: 0, y: 0.999701, z: 0.024452686}
 --- !u!4 &499787878
 Transform:
   m_ObjectHideFlags: 0
@@ -387,6 +451,7 @@ Transform:
   m_Children:
   - {fileID: 1369114852}
   - {fileID: 1456304579}
+  - {fileID: 987869936}
   m_Father: {fileID: 1593624296}
   m_LocalEulerAnglesHint: {x: 0, y: -315, z: 0}
 --- !u!1 &515256561
@@ -399,7 +464,7 @@ GameObject:
   m_Component:
   - component: {fileID: 515256562}
   m_Layer: 0
-  m_Name: rayTarget
+  m_Name: rayTarget1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -430,7 +495,7 @@ GameObject:
   m_Component:
   - component: {fileID: 521714327}
   m_Layer: 0
-  m_Name: rayTarget
+  m_Name: rayTarget1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -514,13 +579,15 @@ MonoBehaviour:
   animTime: 0.1
   leanMultipler: 15
   Iterations: 2
-  segmentLength: 2
+  segmentLength: 1.92
   poleTarget: {fileID: 585295986}
-  rayTarget: {fileID: 2029265392}
-  animTarget2: {x: -4.03648, y: 10.652774, z: 15.935109}
-  ClampedEnd: {x: -4.03648, y: 10.652774, z: 15.935109}
-  End: {x: -4.03648, y: 10.652774, z: 15.935109}
+  rayTarget1: {fileID: 2029265392}
+  rayTarget2: {fileID: 2064398745}
+  animTarget2: {x: -3.8008358, y: 10.652654, z: 15.94}
+  ClampedEnd: {x: -3.8008358, y: 10.652654, z: 15.94}
+  End: {x: -3.8008358, y: 10.652654, z: 15.94}
   Grounded: 1
+  Normal: {x: 0, y: 0.999701, z: 0.024452686}
 --- !u!4 &593800132
 Transform:
   m_ObjectHideFlags: 0
@@ -536,6 +603,7 @@ Transform:
   m_Children:
   - {fileID: 585295987}
   - {fileID: 2029265393}
+  - {fileID: 2064398746}
   m_Father: {fileID: 1593624296}
   m_LocalEulerAnglesHint: {x: 0, y: -270, z: 0}
 --- !u!1 &648635257
@@ -655,7 +723,7 @@ GameObject:
   m_Component:
   - component: {fileID: 653712210}
   m_Layer: 0
-  m_Name: rayTarget
+  m_Name: rayTarget1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -675,6 +743,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 846724168}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &692450083
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 692450084}
+  m_Layer: 0
+  m_Name: rayTarget2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &692450084
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692450083}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.00000035763, y: -1.349, z: 0.074644}
+  m_LocalScale: {x: 0.31941, y: 0.31941, z: 0.31941}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1039419655}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
@@ -1032,13 +1131,15 @@ MonoBehaviour:
   animTime: 0.1
   leanMultipler: 15
   Iterations: 2
-  segmentLength: 2
+  segmentLength: 1.92
   poleTarget: {fileID: 851741344}
-  rayTarget: {fileID: 653712209}
-  animTarget2: {x: 1.1364797, y: 10.652773, z: 15.935109}
-  ClampedEnd: {x: 1.1364796, y: 10.652773, z: 15.935109}
-  End: {x: 1.1364797, y: 10.652773, z: 15.935109}
+  rayTarget1: {fileID: 653712209}
+  rayTarget2: {fileID: 305510055}
+  animTarget2: {x: 0.90083575, y: 10.652654, z: 15.94}
+  ClampedEnd: {x: 0.90083575, y: 10.652654, z: 15.94}
+  End: {x: 0.90083575, y: 10.652654, z: 15.94}
   Grounded: 1
+  Normal: {x: 0, y: 0.999701, z: 0.024452686}
 --- !u!4 &846724168
 Transform:
   m_ObjectHideFlags: 0
@@ -1054,6 +1155,7 @@ Transform:
   m_Children:
   - {fileID: 851741345}
   - {fileID: 653712210}
+  - {fileID: 305510056}
   m_Father: {fileID: 1593624296}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &851741344
@@ -1286,6 +1388,68 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1593624296}
   m_LocalEulerAnglesHint: {x: 13.886, y: 0, z: 0}
+--- !u!1 &987869935
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 987869936}
+  m_Layer: 0
+  m_Name: rayTarget2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &987869936
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 987869935}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.00000023842, y: -1.349, z: 0.074643}
+  m_LocalScale: {x: 0.31941, y: 0.31941, z: 0.31941}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 499787878}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1010537120
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1010537121}
+  m_Layer: 0
+  m_Name: rayTarget2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1010537121
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010537120}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.00000011921, y: -1.349, z: 0.074643}
+  m_LocalScale: {x: 0.31941, y: 0.31941, z: 0.31941}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1349647031}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1011311306
 GameObject:
   m_ObjectHideFlags: 0
@@ -1296,7 +1460,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1011311307}
   m_Layer: 0
-  m_Name: rayTarget
+  m_Name: rayTarget1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1349,13 +1513,15 @@ MonoBehaviour:
   animTime: 0.1
   leanMultipler: 15
   Iterations: 2
-  segmentLength: 2
+  segmentLength: 1.92
   poleTarget: {fileID: 805711932}
-  rayTarget: {fileID: 521714326}
-  animTarget2: {x: -3.450532, y: 10.60384, z: 17.935644}
-  ClampedEnd: {x: -3.450532, y: 10.60384, z: 17.935644}
-  End: {x: -3.450532, y: 10.60384, z: 17.935644}
+  rayTarget1: {fileID: 521714326}
+  rayTarget2: {fileID: 692450083}
+  animTarget2: {x: -3.2631168, y: 10.608305, z: 17.753119}
+  ClampedEnd: {x: -3.2631168, y: 10.608305, z: 17.753119}
+  End: {x: -3.2631168, y: 10.608305, z: 17.753119}
   Grounded: 1
+  Normal: {x: 0, y: 0.999701, z: 0.024452686}
 --- !u!4 &1039419655
 Transform:
   m_ObjectHideFlags: 0
@@ -1371,6 +1537,7 @@ Transform:
   m_Children:
   - {fileID: 805711933}
   - {fileID: 521714327}
+  - {fileID: 692450084}
   m_Father: {fileID: 1593624296}
   m_LocalEulerAnglesHint: {x: 0, y: -225, z: 0}
 --- !u!1 &1116379344
@@ -1943,13 +2110,15 @@ MonoBehaviour:
   animTime: 0.1
   leanMultipler: 15
   Iterations: 2
-  segmentLength: 2
+  segmentLength: 1.92
   poleTarget: {fileID: 1701134099}
-  rayTarget: {fileID: 1011311306}
-  animTarget2: {x: 0.5008204, y: 10.700491, z: 13.984288}
-  ClampedEnd: {x: 0.5008204, y: 10.700491, z: 13.984288}
-  End: {x: 0.5008204, y: 10.700491, z: 13.984288}
+  rayTarget1: {fileID: 1011311306}
+  rayTarget2: {fileID: 1010537120}
+  animTarget2: {x: 0.31292868, y: 10.695775, z: 14.177071}
+  ClampedEnd: {x: 0.31292868, y: 10.695775, z: 14.177071}
+  End: {x: 0.31292868, y: 10.695775, z: 14.177071}
   Grounded: 1
+  Normal: {x: 0, y: 0.999701, z: 0.024452686}
 --- !u!4 &1349647031
 Transform:
   m_ObjectHideFlags: 0
@@ -1965,6 +2134,7 @@ Transform:
   m_Children:
   - {fileID: 1701134100}
   - {fileID: 1011311307}
+  - {fileID: 1010537121}
   m_Father: {fileID: 1593624296}
   m_LocalEulerAnglesHint: {x: 0, y: -45, z: 0}
 --- !u!1 &1369114851
@@ -2008,7 +2178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1456304579}
   m_Layer: 0
-  m_Name: rayTarget
+  m_Name: rayTarget1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2066,7 +2236,7 @@ MonoBehaviour:
   stepTime: 0.25
   animTime: 0.1
   leanMultipler: 15
-  segmentLength: 2
+  segmentLength: 1.92
   limbs:
   - leadingLimb: {fileID: 499787877}
     trailingLimb: {fileID: 1349647030}
@@ -2156,7 +2326,7 @@ Transform:
   m_GameObject: {fileID: 1593624291}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.45, y: 13.71, z: 15.94}
+  m_LocalPosition: {x: -1.45, y: 12.885, z: 15.94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2181,7 +2351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ad6c94e986d8126da51315da93fad99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Height: 2
+  Height: 1.75
   kp: 4
   ki: 0.005
   kd: 40
@@ -2627,13 +2797,15 @@ MonoBehaviour:
   animTime: 0.1
   leanMultipler: 15
   Iterations: 2
-  segmentLength: 2
+  segmentLength: 1.92
   poleTarget: {fileID: 1606043833}
-  rayTarget: {fileID: 515256561}
-  animTarget2: {x: 0.55053234, y: 10.60384, z: 17.935644}
-  ClampedEnd: {x: 0.55053234, y: 10.60384, z: 17.935644}
-  End: {x: 0.55053234, y: 10.60384, z: 17.935644}
+  rayTarget1: {fileID: 515256561}
+  rayTarget2: {fileID: 458669767}
+  animTarget2: {x: 0.36311686, y: 10.608305, z: 17.753119}
+  ClampedEnd: {x: 0.36311686, y: 10.608305, z: 17.753119}
+  End: {x: 0.36311686, y: 10.608305, z: 17.753119}
   Grounded: 1
+  Normal: {x: 0, y: 0.999701, z: 0.024452686}
 --- !u!4 &1951801955
 Transform:
   m_ObjectHideFlags: 0
@@ -2649,6 +2821,7 @@ Transform:
   m_Children:
   - {fileID: 1606043834}
   - {fileID: 515256562}
+  - {fileID: 458669768}
   m_Father: {fileID: 1593624296}
   m_LocalEulerAnglesHint: {x: 0, y: -135, z: 0}
 --- !u!1 &2029265392
@@ -2661,7 +2834,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2029265393}
   m_Layer: 0
-  m_Name: rayTarget
+  m_Name: rayTarget1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2678,6 +2851,37 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -1.349, z: -1.273}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 593800132}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2064398745
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2064398746}
+  m_Layer: 0
+  m_Name: rayTarget2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2064398746
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2064398745}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.00000011921, y: -1.349, z: -0.066312}
+  m_LocalScale: {x: 0.31941, y: 0.31941, z: 0.31941}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 593800132}

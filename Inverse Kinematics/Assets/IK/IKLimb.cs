@@ -11,7 +11,8 @@ public class IKLimb : MonoBehaviour
     [SerializeField] uint Iterations;
     public float segmentLength;
     [SerializeField] GameObject poleTarget;
-    [SerializeField] GameObject rayTarget;
+    [SerializeField] GameObject rayTarget1;
+    [SerializeField] GameObject rayTarget2;
     Vector3 Target = Vector3.zero;
     Vector3 animTarget1 = Vector3.zero;
     public Vector3 animTarget2 = Vector3.zero;
@@ -62,15 +63,16 @@ public class IKLimb : MonoBehaviour
     private void GetTarget()
     {
         RaycastHit hit;
-        Vector3 direction = Vector3.Normalize(rayTarget.transform.position + (smoothVelocity * leanMultipler) - transform.position);
+        Vector3 direction = Vector3.Normalize(rayTarget1.transform.position + (smoothVelocity * leanMultipler) - transform.position);
+        
         //Vector3 direction = Vector3.Normalize(rayTarget.transform.position - transform.position);
         //Debug.DrawRay(transform.position, direction);
         int count = 0;
         int i = 10;
         while (count < i) {
             count++;
-            //Debug.DrawRay(transform.position+(direction*((float)count/i)), Vector3.Lerp(direction, transform.up*-1, (float)count/i));
-            if (Physics.Raycast(transform.position+(direction*((float)count/i)), Vector3.Lerp(direction, Vector3.down, (float)count/i), out hit, segmentLength*2)) {
+            Debug.DrawRay(transform.position+(direction*((float)count/i)), Vector3.Lerp(direction, transform.up*-1, (float)count/i));
+            if (Physics.Raycast(transform.position+(direction*((float)count/i)), Vector3.Lerp(direction, Vector3.Normalize(rayTarget2.transform.position - transform.position), (float)count/i), out hit, segmentLength*2)) {
                 Target = hit.point;
                 Normal = hit.normal;
                 break;

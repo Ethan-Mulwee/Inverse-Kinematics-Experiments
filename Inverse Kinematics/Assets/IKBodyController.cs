@@ -40,11 +40,9 @@ public class IKBodyController : MonoBehaviour
         Move();
         HandleGravity();
         bodyPosition();
-        //rb.position = targetVector;
         var mouseInput = Input.mousePositionDelta.x;
         //Cursor.lockState = CursorLockMode.Locked;
         //transform.Rotate(new Vector3(0, mouseInput*0.2f, 0));
-        Debug.Log(Input.GetAxis("Camera"));
         if (Input.GetKey(KeyCode.E))
         {
             transform.Rotate(new Vector3(0, 1, 0));
@@ -88,7 +86,7 @@ public class IKBodyController : MonoBehaviour
         Quaternion targetRotation2 = Quaternion.FromToRotation(Vector3.up, transform.up);
         Vector3 rotatedInput = Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * input;
         rotatedInput = transform.rotation * input;
-        rb.AddForce(rotatedInput * 10 * Time.deltaTime*ik.GroundedFactor(), ForceMode.Impulse);
+        rb.AddForce(rotatedInput * 6 * Time.deltaTime*ik.GroundedFactor(), ForceMode.Impulse);
     }
 
     private void HandleGravity()
