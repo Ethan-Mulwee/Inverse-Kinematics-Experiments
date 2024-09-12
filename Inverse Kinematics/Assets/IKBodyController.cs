@@ -60,7 +60,7 @@ public class IKBodyController : MonoBehaviour
             rb.AddForce(transform.up*jumpCharge*600);
             jumpCharge = 0;
         }
-        transform.Rotate(new Vector3(0, Input.GetAxis("Camera"), 0));
+        transform.Rotate(new Vector3(0, Input.GetAxis("Camera")*ik.GroundedFactor(), 0));
     }
 
     Vector3 velocity;

@@ -42,7 +42,7 @@ public class IKLimb : MonoBehaviour
         animTarget2 = Vector3.SmoothDamp(animTarget2, animTarget1, ref stepVelocity, animTime);
         float stepDistance = Vector3.Distance(animTarget2, animTarget1);
         float lastDistance = Vector3.Distance(lastTarget, animTarget1);
-        float stepHeight = Mathf.Clamp(-0.5f*((stepDistance-(lastDistance))*stepDistance), 0, 1);
+        float stepHeight = Mathf.Clamp(-0.3f*((stepDistance-(lastDistance))*stepDistance), 0, 0.7f);
         End = animTarget2 + stepHeight*transform.up;
         ClampedEnd = Vector3.ClampMagnitude(End-transform.position, segmentLength*2)+transform.position;
         limb.PoleTarget(poleTarget.transform.position);
