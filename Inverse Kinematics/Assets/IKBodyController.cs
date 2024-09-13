@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.PackageManager;
 using UnityEngine;
 
 
@@ -21,6 +22,7 @@ public class IKBodyController : MonoBehaviour
     Vector3 cumulativeError = Vector3.zero;
     Vector3 perviousError = Vector3.zero;
     float jumpCharge;
+    SecondOrderDynamics secondOrderDynamics = new SecondOrderDynamics(1, 0.5f, 0, Vector3.zero);
 
     void OnValidate() {
         Intialize();
@@ -70,6 +72,7 @@ public class IKBodyController : MonoBehaviour
         force = new Vector3(force.x, Mathf.Clamp(force.y, -1f, float.PositiveInfinity), force.z);
         if(force.magnitude < 0.5f) force = force.normalized * Mathf.Sqrt(force.magnitude);
         rb.AddForce(Vector3.Project(PID(transform.position, target)*ik.GroundedFactor(), transform.up));
+        //rb.AddForce(Vector3.Project(secondOrderDynamics.Update(Time.deltaTime, target, null)*ik.GroundedFactor(), transform.up));
         orientation = Vector3.SmoothDamp(orientation, ik.GetOrientation(), ref velocity, 0.5f);
         Quaternion targetRotation = Quaternion.FromToRotation(transform.up, orientation) * transform.rotation;
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 360f * Time.deltaTime);
