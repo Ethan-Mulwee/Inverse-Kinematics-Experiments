@@ -71,7 +71,7 @@ public class IKLimb : MonoBehaviour
         int i = 10;
         while (count < i) {
             count++;
-            Debug.DrawRay(transform.position+(direction*((float)count/i)), Vector3.Lerp(direction, transform.up*-1, (float)count/i));
+            Debug.DrawRay(transform.position+(direction*((float)count/i)), Vector3.Lerp(direction, Vector3.Normalize(rayTarget2.transform.position - transform.position), (float)count/i));
             if (Physics.Raycast(transform.position+(direction*((float)count/i)), Vector3.Lerp(direction, Vector3.Normalize(rayTarget2.transform.position - transform.position), (float)count/i), out hit, segmentLength*2)) {
                 Target = hit.point;
                 Normal = hit.normal;

@@ -369,9 +369,9 @@ MonoBehaviour:
   poleTarget: {fileID: 1652177755}
   rayTarget1: {fileID: 1513110149}
   rayTarget2: {fileID: 73164706}
-  animTarget2: {x: -10.051917, y: -2.440211, z: 1.6187036}
-  ClampedEnd: {x: -10.051917, y: -2.440211, z: 1.6187036}
-  End: {x: -10.051917, y: -2.440211, z: 1.6187036}
+  animTarget2: {x: -10.254932, y: -2.4894953, z: 1.651396}
+  ClampedEnd: {x: -10.254932, y: -2.4825563, z: 1.651396}
+  End: {x: -10.254932, y: -2.4825563, z: 1.651396}
   Grounded: 1
   Normal: {x: 0, y: 1, z: 2.220446e-17}
 --- !u!4 &55068811
@@ -980,9 +980,9 @@ MonoBehaviour:
   poleTarget: {fileID: 1369114851}
   rayTarget1: {fileID: 1456304578}
   rayTarget2: {fileID: 987869935}
-  animTarget2: {x: -9.707441, y: -2.440211, z: -1.5342033}
-  ClampedEnd: {x: -9.707441, y: -2.440211, z: -1.5342033}
-  End: {x: -9.707441, y: -2.440211, z: -1.5342033}
+  animTarget2: {x: -9.903499, y: -2.4894953, z: -1.5651891}
+  ClampedEnd: {x: -9.903499, y: -2.4830022, z: -1.5651891}
+  End: {x: -9.903499, y: -2.4830022, z: -1.5651891}
   Grounded: 1
   Normal: {x: 0, y: 1, z: 2.220446e-17}
 --- !u!4 &499787878
@@ -1239,9 +1239,9 @@ MonoBehaviour:
   poleTarget: {fileID: 585295986}
   rayTarget1: {fileID: 2029265392}
   rayTarget2: {fileID: 2064398745}
-  animTarget2: {x: -10.051917, y: -2.440211, z: -0.89349926}
-  ClampedEnd: {x: -10.051917, y: -2.440211, z: -0.89349926}
-  End: {x: -10.051917, y: -2.440211, z: -0.89349926}
+  animTarget2: {x: -10.254932, y: -2.4894953, z: -0.911545}
+  ClampedEnd: {x: -10.254932, y: -2.4826717, z: -0.9115449}
+  End: {x: -10.254932, y: -2.4826717, z: -0.911545}
   Grounded: 1
   Normal: {x: 0, y: 1, z: 2.220446e-17}
 --- !u!4 &593800132
@@ -1898,9 +1898,9 @@ MonoBehaviour:
   poleTarget: {fileID: 851741344}
   rayTarget1: {fileID: 653712209}
   rayTarget2: {fileID: 305510055}
-  animTarget2: {x: -5.569355, y: -2.440211, z: -0.89349926}
-  ClampedEnd: {x: -5.569355, y: -2.440211, z: -0.89349926}
-  End: {x: -5.569355, y: -2.440211, z: -0.89349926}
+  animTarget2: {x: -5.6818376, y: -2.4894953, z: -0.911545}
+  ClampedEnd: {x: -5.6818376, y: -2.4871042, z: -0.9115449}
+  End: {x: -5.6818376, y: -2.4871042, z: -0.911545}
   Grounded: 1
   Normal: {x: 0, y: 1, z: 2.220446e-17}
 --- !u!4 &846724168
@@ -2387,9 +2387,9 @@ MonoBehaviour:
   poleTarget: {fileID: 805711932}
   rayTarget1: {fileID: 521714326}
   rayTarget2: {fileID: 692450083}
-  animTarget2: {x: -9.295397, y: -2.440211, z: 2.5755787}
-  ClampedEnd: {x: -9.295397, y: -2.440211, z: 2.5755787}
-  End: {x: -9.295397, y: -2.440211, z: 2.5755787}
+  animTarget2: {x: -9.483133, y: -2.4894953, z: 2.6275969}
+  ClampedEnd: {x: -9.483133, y: -2.4832287, z: 2.6275969}
+  End: {x: -9.483133, y: -2.4832287, z: 2.6275969}
   Grounded: 1
   Normal: {x: 0, y: 1, z: 2.220446e-17}
 --- !u!4 &1039419655
@@ -3229,9 +3229,9 @@ MonoBehaviour:
   poleTarget: {fileID: 207810669}
   rayTarget1: {fileID: 1064416315}
   rayTarget2: {fileID: 1691242037}
-  animTarget2: {x: -5.5693555, y: -2.440211, z: 1.6187041}
-  ClampedEnd: {x: -5.5693555, y: -2.440211, z: 1.6187041}
-  End: {x: -5.5693555, y: -2.440211, z: 1.6187041}
+  animTarget2: {x: -5.681838, y: -2.4894953, z: 1.6513965}
+  ClampedEnd: {x: -5.681838, y: -2.4869888, z: 1.6513965}
+  End: {x: -5.681838, y: -2.4869888, z: 1.6513965}
   Grounded: 1
   Normal: {x: 0, y: 1, z: 2.220446e-17}
 --- !u!4 &1303375210
@@ -3288,9 +3288,9 @@ MonoBehaviour:
   poleTarget: {fileID: 1701134099}
   rayTarget1: {fileID: 1011311306}
   rayTarget2: {fileID: 1010537120}
-  animTarget2: {x: -6.3258724, y: -2.440211, z: -1.8503746}
-  ClampedEnd: {x: -6.3258724, y: -2.440211, z: -1.8503746}
-  End: {x: -6.3258724, y: -2.440211, z: -1.8503746}
+  animTarget2: {x: -6.4536343, y: -2.4894953, z: -1.887746}
+  ClampedEnd: {x: -6.4536343, y: -2.4863682, z: -1.887746}
+  End: {x: -6.4536343, y: -2.4863682, z: -1.887746}
   Grounded: 1
   Normal: {x: 0, y: 1, z: 2.220446e-17}
 --- !u!4 &1349647031
@@ -4393,9 +4393,9 @@ MonoBehaviour:
   poleTarget: {fileID: 1606043833}
   rayTarget1: {fileID: 515256561}
   rayTarget2: {fileID: 458669767}
-  animTarget2: {x: -6.325873, y: -2.440211, z: 2.5755782}
-  ClampedEnd: {x: -6.325873, y: -2.440211, z: 2.5755782}
-  End: {x: -6.325873, y: -2.440211, z: 2.5755782}
+  animTarget2: {x: -6.4536347, y: -2.4894953, z: 2.6275961}
+  ClampedEnd: {x: -6.4536347, y: -2.486165, z: 2.6275961}
+  End: {x: -6.4536347, y: -2.486165, z: 2.6275961}
   Grounded: 1
   Normal: {x: 0, y: 1, z: 2.220446e-17}
 --- !u!4 &1951801955
