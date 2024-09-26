@@ -73,7 +73,7 @@ public class IKBodyController : MonoBehaviour
         if(force.magnitude < 0.5f) force = force.normalized * Mathf.Sqrt(force.magnitude);
         rb.AddForce(Vector3.Project(PID(transform.position, target)*ik.GroundedFactor(), transform.up));
         //rb.AddForce(Vector3.Project(secondOrderDynamics.Update(Time.deltaTime, target, null)*ik.GroundedFactor(), transform.up));
-        orientation = Vector3.SmoothDamp(orientation, ik.GetOrientation(), ref velocity, 0.3f);
+        orientation = Vector3.SmoothDamp(orientation, ik.GetOrientation(), ref velocity, 0.5f);
         Quaternion targetRotation = Quaternion.FromToRotation(transform.up, orientation) * transform.rotation;
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 360f * Time.deltaTime);
     }

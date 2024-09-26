@@ -101,7 +101,7 @@ public class IKLimb : MonoBehaviour
     Vector3 lastTarget;
     public void Step() {
         //min step dist
-        if (Vector3.Distance(Target, End) > 0.7f && Vector3.Distance(Target,End) < segmentLength*2f) {
+        if (Vector3.Distance(Target, End) > 0.4f && Vector3.Distance(Target,End) < segmentLength*2f) {
             lastTarget = animTarget1;
             animTarget1 = Target;
         }
