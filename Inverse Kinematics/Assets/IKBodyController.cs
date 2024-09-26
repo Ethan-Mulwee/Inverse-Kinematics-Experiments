@@ -99,7 +99,7 @@ public class IKBodyController : MonoBehaviour
         //Interia
         rb.drag = 0.8f * ik.GroundedFactor();
         //Max Speed
-        rb.AddForce((rotatedInput * Mathf.Clamp((40-(rb.velocity.magnitude*4)), 0, float.PositiveInfinity) * Time.deltaTime*ik.GroundedFactor()), ForceMode.Impulse);
+        rb.AddForce((rotatedInput * Mathf.Clamp((30-(rb.velocity.magnitude*4)), 0, float.PositiveInfinity) * Time.deltaTime*ik.GroundedFactor()), ForceMode.Impulse);
         //Breaking force
         if (rotatedInput == Vector3.zero) {
             rb.AddForce(rb.velocity*-1*ik.GroundedFactor());
