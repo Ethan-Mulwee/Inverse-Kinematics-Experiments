@@ -73,7 +73,7 @@ public class IKBodyController : MonoBehaviour
         if(force.magnitude < 0.5f) force = force.normalized * Mathf.Sqrt(force.magnitude);
         rb.AddForce(Vector3.Project(PID(transform.position, target)*ik.GroundedFactor(), transform.up));
         //rb.AddForce(Vector3.Project(secondOrderDynamics.Update(Time.deltaTime, target, null)*ik.GroundedFactor(), transform.up));
-        orientation = Vector3.SmoothDamp(orientation, ik.GetOrientation(), ref velocity, 0.5f);
+        orientation = Vector3.SmoothDamp(orientation, ik.GetOrientation(), ref velocity, 0.3f);
         Quaternion targetRotation = Quaternion.FromToRotation(transform.up, orientation) * transform.rotation;
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 360f * Time.deltaTime);
     }
@@ -94,11 +94,14 @@ public class IKBodyController : MonoBehaviour
 
     private void Move()
     {
-        Quaternion targetRotation = Quaternion.FromToRotation(Vector3.forward, transform.forward);
-        Quaternion targetRotation2 = Quaternion.FromToRotation(Vector3.up, transform.up);
-        Vector3 rotatedInput = Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * input;
+        Vector3 rotatedInput;
         rotatedInput = transform.rotation * input;
-        rb.AddForce(rotatedInput * 6 * Time.deltaTime*ik.GroundedFactor(), ForceMode.Impulse);
+        //Max Speed
+        rb.AddForce((rotatedInput * Mathf.Clamp((40-(rb.velocity.magnitude*4)), 0, float.PositiveInfinity) * Time.deltaTime*ik.GroundedFactor()), ForceMode.Impulse);
+        //Breaking force
+        if (rotatedInput == Vector3.zero) {
+            rb.AddForce(rb.velocity*-1*ik.GroundedFactor());
+        }
     }
 
     private void HandleGravity()
